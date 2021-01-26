@@ -10,14 +10,14 @@
             <h3>Trading Robots</h3>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-left: -90px">
 
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="box featured">
+            <div class="box featured" style="width: 400px;">
               <h3>O'statter</h3>
               <h4><sup></sup>1</h4>
               <ul>
-                  <table>
+                  <table style="margin-left: 80px">
                       <tr>
                           <td>Licence</td>
                           <td>:</td>
@@ -52,11 +52,11 @@
           </div>
 
           <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="box featured">
+            <div class="box featured" style="width: 400px; margin-left: 130px;">
               <h3>O'premium</h3>
               <h4><sup></sup>2</h4>
               <ul>
-                  <table>
+                  <table style="margin-left: 30px">
                       <tr>
                           <td>Licence</td>
                           <td>:</td>
@@ -91,11 +91,11 @@
           </div>
 
           <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box featured">
+            <div class="box featured" style="width: 400px; margin-left: 260px;">
               <h3>O'emperor</h3>
               <h4><sup></sup>3</h4>
               <ul>
-                <table>
+                <table style="margin-left: 30px">
                       <tr>
                           <td>Licence</td>
                           <td>:</td>
@@ -157,14 +157,14 @@
             <h3>Crypto currency</h3>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-left: 130px;">
 
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="box featured">
+            <div class="box featured" style="width: 400px">
               <h3>O'sliver</h3>
               <h4><sup></sup>1</h4>
               <ul>
-                  <table>
+                  <table style="margin-left: 80px">
                       <tr>
                           <td>Investment</td>
                           <td>:</td>
@@ -188,17 +188,17 @@
                   </table>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <a href="#" class="btn-buy">Start Now</a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="box featured">
+            <div class="box featured" style="width: 400px; margin-left: 170px">
               <h3>O'gold</h3>
               <h4><sup></sup>2</h4>
               <ul>
-                <table>
+                <table style="margin-left: 80px">
                       <tr>
                           <td>Investment</td>
                           <td>:</td>
@@ -222,42 +222,7 @@
                   </table>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box featured">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-            <div class="box featured">
-              <!--<span class="advanced">Advanced</span>-->
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <a href="#" class="btn-buy">Start Now</a>
               </div>
             </div>
           </div>
