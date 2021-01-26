@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -30,4 +32,35 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  @livewireStyles
 </head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top " style="background-color: rgba(116, 15, 214, 0.9)">
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+      <div class="col-xl-9 d-flex align-items-center">
+        <h1 class="logo mr-auto"><a href="index.html">Osature</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!--<a href="index.html" class="logo mr-auto"><img src="imge/logo.jpg" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="#hero">HOME</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="#services">INVESMENT</a></li>
+            <li><a href="#features">FAQ</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+
+          </ul>
+        </nav><!-- .nav-menu -->
+
+        <a href="{{ route('connexion') }}" class="get-started-btn scrollto">Connexion</a>
+      </div>
+    </div>
+
+  </div>
+</header><!-- End Header -->
