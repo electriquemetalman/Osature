@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
 Route::get('Connexion','CompteController@Compte')->name('connexion');
+
+
+
+Route::middleware([connexion::class])->group(function(){
+    Route::get('Administration','CompteController@Administrer')->name('index_admin_path');
+    Route::get('Administration|Contact','ConfigurationController@Contact')->name('admin_contact_path');
+    Route::post('Administration-saveContact', 'ConfigurationController@saveContact')->name('save_contact_admin_path');
+    Route::get('Administration|FAQ','ConfigurationController@FAQ')->name('admin_faq_path');
+    Route::get('Administration|deconnexion','CompteController@Deconnexion')->name('admin_Deconnexion_path');
+});
+
+
