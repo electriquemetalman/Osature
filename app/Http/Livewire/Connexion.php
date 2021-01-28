@@ -10,26 +10,27 @@ class Connexion extends Component
 
     public $email;
     public $mdp;
-    public $type='password';
-    public $testeur=true;
+    public $type = 'password';
+    public $testeur = true;
 
 
-    public function connexion(){
-        $email=$this->email;
-        $password=$this->mdp;
+    public function connexion()
+    {
+        $email = $this->email;
+        $password = $this->mdp;
 
-        $reponse=Auth::attempt(['email' => $email, 'password' => $password]);
+        $reponse = Auth::attempt(['email' => $email, 'password' => $password]);
 
         if ($reponse) {
-            session()->flash('error','connectez... Fonctionnalité admin en cours de developpement');
+            session()->flash('error', 'connectez... Fonctionnalité admin en cours de developpement');
             //return \redirect()->route('index_admin_path');
-        }else{
-            $this->mdp=null;
-            session()->flash('error','Nom d\'utilisateur ou mot de passe incorrect');
+        } else {
+            $this->mdp = null;
+            session()->flash('error', 'Nom d\'utilisateur ou mot de passe incorrect');
         }
     }
 
-    
+
     public function render()
     {
         return view('livewire.connexion');
