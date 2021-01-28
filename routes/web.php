@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {return view('welcome');});
-
 Route::get('Connexion','CompteController@Compte')->name('connexion');
 
 
@@ -25,6 +24,7 @@ Route::middleware([connexion::class])->group(function(){
     Route::post('Administration-saveContact', 'ConfigurationController@saveContact')->name('save_contact_admin_path');
     Route::get('Administration|FAQ','ConfigurationController@FAQ')->name('admin_faq_path');
     Route::get('Administration|deconnexion','CompteController@Deconnexion')->name('admin_Deconnexion_path');
+    Route::get('Administration|Investment','ConfigurationController@Investment')->name('admin_Investment_path');
 });
 
 
