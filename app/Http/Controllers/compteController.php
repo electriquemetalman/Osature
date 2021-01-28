@@ -7,8 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class compteController extends Controller
 {
+<<<<<<< HEAD
+
+    public function Compte()
+    {
+        //return bcrypt(123456);
+=======
     
     public function Compte(){
+>>>>>>> 9cc641224a0c06cdb0adb8443ea0c04d1178e788
         return view('Compte.connection');
     }
 

@@ -2,7 +2,7 @@
 
 @include('sections/header')
 
-            
+
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -32,7 +32,7 @@
     <section id="counts" class="counts">
       <div class="container">
 
-        <div class="row counters" style="margin-left: 170px">
+        <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">232</span>
@@ -49,6 +49,11 @@
             <p>visiteurs</p>
           </div>
 
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,463</span>
+            <p>Satisfaction</p>
+          </div>
+
         </div>
 
       </div>
@@ -60,7 +65,7 @@
 
     <!-- ======= Faq Section ======= -->
         @include('sections/faq')
-   
+
       @include('sections/contact')
     <!-- End Contact Section -->
 
