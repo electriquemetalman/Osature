@@ -22,18 +22,10 @@ class Connexion extends Component
         $reponse = Auth::attempt(['email' => $email, 'password' => $password]);
 
         if ($reponse) {
-<<<<<<< HEAD
-            session()->flash('error', 'connectez... Fonctionnalité admin en cours de developpement');
-            //return \redirect()->route('index_admin_path');
-        } else {
-            $this->mdp = null;
-            session()->flash('error', 'Nom d\'utilisateur ou mot de passe incorrect');
-=======
             return \redirect()->route('index_admin_path');
         }else{
             $this->mdp=null;
             session()->flash('error','Nom d\'utilisateur ou mot de passe incorrect');
->>>>>>> 9cc641224a0c06cdb0adb8443ea0c04d1178e788
         }
     }
 
