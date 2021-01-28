@@ -67,6 +67,11 @@ public function FAQ(){
     return view('Administration.index',compact('title'));
 }
 
+//
+public function Investment(){
+    $title='Investment';
+    return view('Administration.index',compact('title'));
+}
 
 
 }
