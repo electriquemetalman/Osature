@@ -1,7 +1,4 @@
-<div>
-
-
-    <section class="content">
+<section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 mx-auto">
@@ -22,7 +19,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Liste des Frequently Asked Questions.</h3>
+                <h3 class="card-title">Abut us actuelle.</h3>
                 <div class="card-footer text-right">
                   <button type="button" class="btn btn-primary" wire:click='ajouter'>Ajouter</button>
               </div>
@@ -32,14 +29,14 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Question</th>
+                    <th>Libele about US</th>
                     <th>Manipulation</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($this->faqList as $item)
+                    @foreach ($this->aboutList as $item)
                     <tr>
-                      <td>{{ $item->libelle }}</td>
+                      <td>{{ $item->security }}</td>
                       <td>
                         <a href="#" data-toggle="modal" wire:click="voir({{ $item->id }})"><code class="badge badge-success" >Voir / Modifier</code></a>
                         <a href="#" data-toggle="modal" wire:click="supprimer({{ $item->id }})"><code class="badge badge-danger" >Supprimer</code></a>
@@ -62,32 +59,42 @@
                 @if ($modifier)
                 <div class="card card-primary">
                   <div class="card-header">
-                      <h3 class="card-title">Modifier un Frequently Asked Questions.</h3>
+                      <h3 class="card-title">Modifier About US.</h3>
                       <div class="card-footer text-right">
                         <button type="button" class="btn btn-primary" wire:click='liste'>Liste</button>
                     </div>
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form wire:submit.prevent='ModifierFaq()'>
+                  <form wire:submit.prevent='ModifierAbout()'>
                       <div class="card-body">
                           <div class="form-group">
-                              <label for="exampleInputEmail1">Libellé</label>
-                              <input type="text" class="form-control" wire:model.lazy='libelle'
-                                  placeholder="Entrer le libellé" required>
+                              <label for="exampleInputEmail1">Security</label>
+                              <textarea class="form-control" wire:model.lazy='security' rows="6"
+                                  placeholder="Entrer le contenu de security" required></textarea>
                           </div>
                           <div class="form-group">
-                              <label for="exampleInputPassword1">Réponse</label>
-                              <textarea class="form-control" wire:model.lazy='reponse' rows="6"
-                                  placeholder="Entrer les éléments de reponse" required></textarea>
+                              <label for="exampleInputPassword1">Guarantee</label>
+                              <textarea class="form-control" wire:model.lazy='guarantee' rows="6"
+                                  placeholder="Entrer le contenu de guarantee" required></textarea>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">One-off income</label>
+                              <textarea class="form-control" wire:model.lazy='income' rows="6"
+                                  placeholder="Entrer le contenu de income" required></textarea>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">How we work</label>
+                              <textarea class="form-control" wire:model.lazy='howework' rows="6"
+                                  placeholder="Entrer le contenu de how we work" required></textarea>
                           </div>
                       </div>
                       <!-- /.card-body -->
 
                       <div class="card-footer text-center">
-                          <button type="submit" class="btn btn-primary" wire:target='ModifierFaq'
+                          <button type="submit" class="btn btn-primary" wire:target='ModifierAbout'
                               wire:loading.remove>Modifier</button>
-                          <button class="btn btn-success disabled mb-5 mt-2" wire:target='ModifierFaq'
+                          <button class="btn btn-success disabled mb-5 mt-2" wire:target='ModifierAbout'
                               wire:loading> Patientez svp ... </button>
                       </div>
                   </form>
@@ -97,36 +104,46 @@
 
 
 
-                    @if ($ajouterFaq)
+                    @if ($ajouterAbout)
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Ajouter un Frequently Asked Questions.</h3>
+                        <h3 class="card-title">Ajouter About US.</h3>
                         <div class="card-footer text-right">
                           <button type="button" class="btn btn-primary" wire:click='liste'>Liste</button>
                       </div>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form wire:submit.prevent='AjouterFaq()'>
+                    <form wire:submit.prevent='AjouterAbout()'>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Libellé</label>
-                                <input type="text" class="form-control" wire:model.lazy='libelle'
-                                    placeholder="Entrer le libellé" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Réponse</label>
-                                <textarea class="form-control" wire:model.lazy='reponse' rows="6"
-                                    placeholder="Entrer les éléments de reponse" required></textarea>
-                            </div>
+                              <label for="exampleInputEmail1">Security</label>
+                              <textarea class="form-control" wire:model.lazy='security' rows="6"
+                                  placeholder="Entrer le contenu de security" required></textarea>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword2">Guarantee</label>
+                              <textarea class="form-control" wire:model.lazy='guarantee' rows="6"
+                                  placeholder="Entrer le contenu de guarantee" required></textarea>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword3">One-off income</label>
+                              <textarea class="form-control" wire:model.lazy='income' rows="6"
+                                  placeholder="Entrer le contenu de income" required></textarea>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword4">How we work</label>
+                              <textarea class="form-control" wire:model.lazy='howework' rows="6"
+                                  placeholder="Entrer le contenu de how we work" required></textarea>
+                          </div>
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary" wire:target='AjouterFaq'
+                            <button type="submit" class="btn btn-primary" wire:target='AjouterAbout'
                                 wire:loading.remove>Enregistrer</button>
-                            <button class="btn btn-success disabled mb-5 mt-2" wire:target='AjouterFaq'
+                            <button class="btn btn-success disabled mb-5 mt-2" wire:target='AjouterAbout'
                                 wire:loading> Patientez svp ... </button>
                         </div>
                     </form>

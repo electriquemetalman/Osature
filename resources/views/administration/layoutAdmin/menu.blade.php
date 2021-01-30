@@ -21,10 +21,29 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          
+
 
           <li class="nav-header active">Configuration</li>
 
+
+                         <li class="nav-item has-treeview">
+                            <a href="{{ route('admin_about_path') }}" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    ABOUT US
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin_about_path') }}" class="nav-link">
+                                        <i class="fa fa-caret-right nav-icon"></i>
+                                        <p>Gerer ABOUT US</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
 
                         <li class="nav-item has-treeview">
                             <a href="{{ route('admin_faq_path') }}" class="nav-link">
@@ -90,7 +109,7 @@
                                       <p>Déconnexion</p>
                                   </a>
                               </li>
-         
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
