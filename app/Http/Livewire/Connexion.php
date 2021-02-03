@@ -23,11 +23,13 @@ class Connexion extends Component
 
         if ($reponse) {
             return \redirect()->route('index_admin_path');
-        } else {
-            $this->mdp = null;
-            session()->flash('error', 'Nom d\'utilisateur ou mot de passe incorrect');
-        }
+
+        }else{
+            $this->mdp=null;
+            session()->flash('error','Nom d\'utilisateur ou mot de passe incorrect');
+
     }
+}
 
 
     public function render()

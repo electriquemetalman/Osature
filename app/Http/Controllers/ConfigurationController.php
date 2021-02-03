@@ -14,7 +14,7 @@ class ConfigurationController extends Controller
     {
         $adresse = adresse::first();
         $title = 'Contact';
-        return view('Administration.index', compact('title', 'adresse'));
+        return view('administration.index', compact('title', 'adresse'));
     }
 
     //enregistrement des adresses
@@ -64,19 +64,19 @@ class ConfigurationController extends Controller
     public function FAQ()
     {
         $title = 'FAQ';
-        return view('Administration.index', compact('title'));
+        return view('administration.index', compact('title'));
     }
 
     //
     public function Investment()
     {
         $title = 'Investment';
-        return view('Administration.index', compact('title'));
+        return view('administration.index', compact('title'));
     }
 
     public function About()
     {
         $title = 'About';
-        return view('Administration.index', compact('title'));
+        return view('administration.index', compact('title'));
     }
 }
