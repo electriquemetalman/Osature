@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Auth;
 class compteController extends Controller
 {
 
+
     public function Compte()
     {
         return view('compte.connection');
+
     }
 
 
