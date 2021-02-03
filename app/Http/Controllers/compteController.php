@@ -10,14 +10,14 @@ class compteController extends Controller
 
     public function Compte()
     {
-        return view('Compte.connection');
+        return view('compte.connection');
     }
 
 
     public function Administrer()
     {
         $title = 'Accueil';
-        return view('Administration.index', compact('title'));
+        return view('administration.index', compact('title'));
     }
 
 
