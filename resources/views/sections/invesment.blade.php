@@ -2,57 +2,61 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Investment</h2>
+          <h2 class="menus">Investment</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+        </div><br/><br/>
 
         <div class="section-title">
-            <h3>Trading Robots</h3>
-        </div>
+            <h3 style="color:rgba(3, 1, 75, 0.9); font-weight:bold">Trading Robots</h3>
+        </div><br/><br/>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box iconbox-blue">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                </svg>
-                <i class="bx bxl-dribbble"></i>
-              </div>
-              <h4><a href="">O'statter</a></h4>
-              <p>
-                    <table style="width: 310px">
-                        <tr>
-                            <td>Licence</td>
-                            <td>:</td>
-                            <td>50$</td>
-                        </tr>
-                        <tr>
-                            <td>Investment</td>
-                            <td>:</td>
-                            <td>50$ ~~ 2000$</td>
-                        </tr>
-                        <tr>
-                            <td>Daily profit</td>
-                            <td>:</td>
-                            <td>0.39% ~~ 0.94%</td>
-                        </tr>
-                        <tr>
-                            <td>Monthly profit</td>
-                            <td>:</td>
-                            <td>18%</td>
-                        </tr>
-                        <tr>
-                            <td>Contact lenght</td>
-                            <td>:</td>
-                            <td>5 years</td>
-                        </tr>
-                    </table>
-              </p>
-            </div>
-          </div>
+           @foreach ($InvestmentList as $investment)
+                @if ($investment->type == 'Trading Robots')
+                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box iconbox-blue">
+                    <div class="icon">
+                        <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                        </svg>
+                        <i class="bx bxl-dribbble"></i>
+                    </div>
+                    <h4><a href="">{{ $investment->libelle }}</a></h4>
+                    <p>
+                            <table style="width: 310px">
+                                <tr>
+                                    <td>Licence</td>
+                                    <td>:</td>
+                                    <td>{{ $investment->licence }}<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
+                                </tr>
+                                <tr>
+                                    <td>Investment</td>
+                                    <td>:</td>
+                                    <td> {{ $investment->investmin }} <img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"> ~~ {{ $investment->investmax }} <img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
+                                </tr>
+                                <tr>
+                                    <td>Daily profit</td>
+                                    <td>:</td>
+                                    <td>{{ $investment->profitjourmin }} % ~~ {{ $investment->profitjourmax }} %</td>
+                                </tr>
+                                <tr>
+                                    <td>Monthly profit</td>
+                                    <td>:</td>
+                                    <td>{{ $investment->profitmois }} %</td>
+                                </tr>
+                                <tr>
+                                    <td>Contact lenght</td>
+                                    <td>:</td>
+                                    <td>{{ $investment->dureecontrat }} years</td>
+                                </tr>
+                            </table>
+                    </p>
+                    </div>
+                  </div>
+             @endif
+            @endforeach
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <!--<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box iconbox-orange ">
               <div class="icon">
                 <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
@@ -66,12 +70,12 @@
                       <tr>
                           <td>Licence</td>
                           <td>:</td>
-                          <td>200$</td>
+                          <td>200<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
                       </tr>
                       <tr>
                           <td>Investment</td>
                           <td>:</td>
-                          <td>200$ ~~ 10 000$</td>
+                          <td>200<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"> ~~ 10000<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
                       </tr>
                        <tr>
                           <td>Daily profit</td>
@@ -107,12 +111,12 @@
                       <tr>
                           <td>Licence</td>
                           <td>:</td>
-                          <td>500$</td>
+                          <td>500<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
                       </tr>
                       <tr>
                           <td>Investment</td>
                           <td>:</td>
-                          <td>10001$ ~~ 50000$</td>
+                          <td>10001<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"> ~~ 50000<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
                       </tr>
                        <tr>
                           <td>Daily profit</td>
@@ -132,17 +136,17 @@
                     </table>
               </p>
             </div>
-          </div>
+          </div>-->
 
-        </div>
+        </div><br/>
 
         <div class="section-title">
             <h3></h3>
-        </div>
+        </div><br/>
 
         <div class="section-title">
-            <h3>Crypto currency</h3>
-        </div>
+            <h3 style="color:rgba(3, 1, 75, 0.9); font-weight:bold">Crypto currency</h3>
+        </div><br/><br/>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">

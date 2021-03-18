@@ -23,7 +23,7 @@ class NewInvestment extends Component
     public $contractLengh;
     public $profMonth;
     public $profit;
-    
+
 
 
     public function vueNonVue($v1, $v2, $v3)
@@ -33,17 +33,18 @@ class NewInvestment extends Component
         $this->liste = $v3;
     }
 
-    public function setInputNull(){
-        $this->libelle=null;
-        $this->type=null;
-        $this->licence=null;
-        $this->inv1=null;
-        $this->inv2=null;
-        $this->dayProf1=null;
-        $this->dayProf2=null;
-        $this->profMonth=null;
-        $this->contractLengh=null;
-        $this->profit=null;
+    public function setInputNull()
+    {
+        $this->libelle = null;
+        $this->type = null;
+        $this->licence = null;
+        $this->inv1 = null;
+        $this->inv2 = null;
+        $this->dayProf1 = null;
+        $this->dayProf2 = null;
+        $this->profMonth = null;
+        $this->contractLengh = null;
+        $this->profit = null;
     }
 
     public function AjouterInv()
@@ -53,41 +54,41 @@ class NewInvestment extends Component
             \session()->flash("error", "l'investissement *$this->libelle* existe deja");
         } else {
 
-            if ($this->type=='Trading Robots') {
+            if ($this->type == 'Trading Robots') {
                 $reponse = ModelsInvest::create(
                     [
-                        'type'=>$this->type,
-                        'libelle'=>$this->libelle,
-                        'licence'=>$this->licence,
-                        'investmin'=>$this->inv1,
-                        'investmax'=>$this->inv2,
-                        'profitjourmin'=>$this->dayProf1,
-                        'profitjourmax'=>$this->dayProf2,
-                        'profitmois'=>$this->profMonth,
-                        'dureecontrat'=>$this->contractLengh,
+                        'type' => $this->type,
+                        'libelle' => $this->libelle,
+                        'licence' => $this->licence,
+                        'investmin' => $this->inv1,
+                        'investmax' => $this->inv2,
+                        'profitjourmin' => $this->dayProf1,
+                        'profitjourmax' => $this->dayProf2,
+                        'profitmois' => $this->profMonth,
+                        'dureecontrat' => $this->contractLengh,
                     ]
                 );
             } else {
                 $reponse = ModelsInvest::create(
                     [
-                        'type'=>$this->type,
-                        'libelle'=>$this->libelle,
-                        
-                        'investmin'=>$this->inv1,
+                        'type' => $this->type,
+                        'libelle' => $this->libelle,
 
-                        'investmax'=>$this->inv2,
+                        'investmin' => $this->inv1,
 
-                        'profitjourmin'=>$this->dayProf1,
+                        'investmax' => $this->inv2,
 
-                        'dureecontrat'=>$this->contractLengh,
+                        'profitjourmin' => $this->dayProf1,
 
-                        'profit'=>$this->profit,
+                        'dureecontrat' => $this->contractLengh,
+
+                        'profit' => $this->profit,
 
                     ]
                 );
             }
-            
-            
+
+
 
             if ($reponse) {
                 session()->flash("message", "l'investissement $this->libelle ajouté avec success");
@@ -112,16 +113,16 @@ class NewInvestment extends Component
     public function voir($id)
     {
         $reponse = ModelsInvest::find($id);
-        $this->libelle=$reponse->libelle;
-        $this->type=$reponse->type;
-        $this->licence=$reponse->licence;
-        $this->inv1=$reponse->investmin;
-        $this->inv2=$reponse->investmax;
-        $this->dayProf1=$reponse->profitjourmin;
-        $this->dayProf2=$reponse->profitjourmax;
-        $this->profMonth=$reponse->profitmois;
-        $this->contractLengh=$reponse->dureecontrat;
-        $this->profit=$reponse->profit;
+        $this->libelle = $reponse->libelle;
+        $this->type = $reponse->type;
+        $this->licence = $reponse->licence;
+        $this->inv1 = $reponse->investmin;
+        $this->inv2 = $reponse->investmax;
+        $this->dayProf1 = $reponse->profitjourmin;
+        $this->dayProf2 = $reponse->profitjourmax;
+        $this->profMonth = $reponse->profitmois;
+        $this->contractLengh = $reponse->dureecontrat;
+        $this->profit = $reponse->profit;
 
         $this->identificateur = $id;
         $this->vueNonVue(false, true, false);
@@ -130,44 +131,44 @@ class NewInvestment extends Component
     public function ModifierFaq()
     {
         $reponse = ModelsInvest::whereLibelle($this->libelle)->first();
-        if ($reponse->id!=$this->identificateur) {
+        if ($reponse->id != $this->identificateur) {
             \session()->flash("error", "le nom de l'investissement *$this->libelle* existe deja");
         } else {
 
-            if ($this->type=='Trading Robots') {
+            if ($this->type == 'Trading Robots') {
                 $reponse = ModelsInvest::whereId($this->identificateur)
-                ->update(
-                    [
-                        'type'=>$this->type,
-                        'libelle'=>$this->libelle,
-                        'licence'=>$this->licence,
-                        'investmin'=>$this->inv1,
-                        'investmax'=>$this->inv2,
-                        'profitjourmin'=>$this->dayProf1,
-                        'profitjourmax'=>$this->dayProf2,
-                        'profitmois'=>$this->profMonth,
-                        'dureecontrat'=>$this->contractLengh,
-                        'profit'=>null,
-                    ]
-                );
+                    ->update(
+                        [
+                            'type' => $this->type,
+                            'libelle' => $this->libelle,
+                            'licence' => $this->licence,
+                            'investmin' => $this->inv1,
+                            'investmax' => $this->inv2,
+                            'profitjourmin' => $this->dayProf1,
+                            'profitjourmax' => $this->dayProf2,
+                            'profitmois' => $this->profMonth,
+                            'dureecontrat' => $this->contractLengh,
+                            'profit' => null,
+                        ]
+                    );
             } else {
-                $reponse = 
-                ModelsInvest::whereId($this->identificateur)
-                ->update(
-                    [
-                        'type'=>$this->type,
-                        'libelle'=>$this->libelle,
-                        'licence'=>null,
-                        'investmin'=>$this->inv1,
-                        'investmax'=>$this->inv2,
-                        'profitjourmin'=>$this->dayProf1,
-                        'profitjourmax'=>null,
-                        'profitmois'=>$this->profMonth,
-                        'dureecontrat'=>$this->contractLengh,
-                        'profit'=>$this->profit,
+                $reponse =
+                    ModelsInvest::whereId($this->identificateur)
+                    ->update(
+                        [
+                            'type' => $this->type,
+                            'libelle' => $this->libelle,
+                            'licence' => null,
+                            'investmin' => $this->inv1,
+                            'investmax' => $this->inv2,
+                            'profitjourmin' => $this->dayProf1,
+                            'profitjourmax' => null,
+                            'profitmois' => $this->profMonth,
+                            'dureecontrat' => $this->contractLengh,
+                            'profit' => $this->profit,
 
-                    ]
-                );
+                        ]
+                    );
             }
 
             if ($reponse) {

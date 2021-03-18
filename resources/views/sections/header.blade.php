@@ -38,7 +38,7 @@
 <body>
 
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top " style="background-color: rgba(116, 15, 214, 0.9)">
+<header id="header" class="fixed-top " style="background-color: rgba(3, 1, 75, 0.9)">
   <div class="container-fluid">
 
     <div class="row justify-content-center">

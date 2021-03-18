@@ -1,7 +1,7 @@
 <section id="about" class="features">
       <div class="container"  data-aos="fade-up">
         <div class="section-title">
-          <h2>About Us</h2>
+          <h2 class="menus">About Us</h2>
           <p>Osature is an investment company that has been developed by industry experts and serves as a universal portfolio for investor.
 The trading process includes algorithms, over 300 trades per second on exchanges using private software, and talented Osature traders.<br><br>
 
@@ -11,33 +11,27 @@ Purchase sale of currency pairs, then in the next step the amount of profit rece
         <div class="row">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
             <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-receipt"></i>
-              <h4>Why Us</h4><br/>
-              <h6>Security</h6>
-                <p>
-                    Through our commitment to quality and excellence, the Osature universe aims to provide global best practices to ensure the safety of our customers as part of our safety management system
-                </p><br/>
+              <!--<i class="bx bx-receipt"></i>-->
+              @foreach ($AboutList as $about)
+                <h4 style="color:rgba(3, 1, 75, 0.9)">Why Us</h4><br/><br/>
+                <h6 style="color:rgba(3, 1, 75, 0.9); font-weight:bold"><img src="image/security.PNG" alt="" style="height: 65px; width: 65px">Security</h6>
+                    <p> {{ $about->security }} </p><br/><br/>
 
-              <h6>Guarantee</h6>
-                <p>
-                    We are convinced that this commitment is the main reason for our success.<br />
-                    This is what makes us one of the market pioneers in the international financial market providing good economic health and legal accountability to ours partners and clients
-                </p><br/>
+                <h6 style="color:rgba(3, 1, 75, 0.9); font-weight:bold"><img src="image/guarantee.PNG" alt="" style="height: 65px; width: 65px">Guarantee</h6>
+                    <p> {{ $about->guarantee }} </p><br/><br/>
 
-              <h6>One-off income</h6>
-                <p>
-                    A powerful Crypto currency auto trading platform for investors interested in serious work and financial success.<br/>
-                    Osature invesment features take into account the specific aspects of your divices
-                </p>
-            </div>
-            <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-cube-alt"></i>
-              <h4>How we work</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-            </div>
+                <h6 style="color:rgba(3, 1, 75, 0.9); font-weight:bold"><img src="image/income.PNG" alt="" style="height: 65px; width: 65px">One-off income</h6>
+                    <p> {{ $about->income }} </p>
+                </div><br/><br/>
+                <div class="icon-box mt-5" data-aos="fade-up" data-aos-delay="200">
+                <!--<i class="bx bx-cube-alt"></i>-->
+                <h4 style="color:rgba(3, 1, 75, 0.9)">How we work</h4>
+                <p>{{ $about->howework }}</p>
+                </div>
+              @endforeach
           </div>
           <div class="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay="100">
-            <img src="image/features.svg" alt="" class="img-fluid">
+            <img src="image/image about.JPG" alt="" class="img-fluid" style="height: 80%; ">
           </div>
         </div>
 
