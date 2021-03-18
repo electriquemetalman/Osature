@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -25,7 +25,8 @@
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
-
+  
+  <link href="vendor/toastr/toastr.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Techie - v2.1.0
   * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
@@ -36,14 +37,13 @@
 </head>
 
 <body>
-
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top " style="background-color: rgba(3, 1, 75, 0.9)">
   <div class="container-fluid">
 
     <div class="row justify-content-center">
       <div class="col-xl-9 d-flex align-items-center">
-        <h1 class="logo mr-auto"><a href="index.html">Osature</a></h1>
+        <h1 class="logo mr-auto"><a href="{{ route('welcome') }}">Osature</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!--<a href="index.html" class="logo mr-auto"><img src="imge/logo.jpg" alt="" class="img-fluid"></a>-->
 

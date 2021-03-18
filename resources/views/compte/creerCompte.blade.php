@@ -1,6 +1,6 @@
 @include('sections.header')
 
-@include('sections.connectionForm')
+@include('sections.createCompteForm')
 
 @include('sections.footer')
 

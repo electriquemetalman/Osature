@@ -77,6 +77,5 @@
 
  @include('sections/js')
 
-</body>
 
-</html>
+
