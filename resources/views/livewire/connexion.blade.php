@@ -49,6 +49,11 @@
                             </div>
                             <input  class="form-control" type="password" value="{{ $mdp }}" wire:model.lazy="mdp" placeholder="*******" minlength="6" required>
                           </div>
+
+                          <div class="text-right text-teal">
+                            <span >Vous n'avez pas de compte? </span> <a href="{{ route('addCompte') }}">Cliquez ici</a> 
+                         </div>
+
                             <br>
                             @if (session()->has('error'))
                             <div class="alert alert-danger text-center">
@@ -65,7 +70,7 @@
                 </div>
             </div>
             <!-- /Shiping Details -->
-
+            
 
         </div>
         <!-- /Order Details -->

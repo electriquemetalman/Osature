@@ -15,11 +15,18 @@ class CreateComptesTable extends Migration
     {
         Schema::create('comptes', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('password');
             $table->string('nom');
             $table->string('prenom');
+            $table->string('nomuser');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('pays');
+            $table->string('apm');
+            $table->string('bitcoins');
+            $table->string('payeer');
             $table->string('type')->nullable();
+            $table->boolean('statut')->default(false);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

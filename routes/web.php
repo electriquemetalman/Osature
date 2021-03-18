@@ -1,7 +1,8 @@
 <?php
 
+use App\models\adresse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('Connexion', 'CompteController@Compte')->name('connexion');
+        $contact=adresse::get();
+    return view('welcome',compact('contact'));
+})->name('welcome');
 
+Route::get('Connexion', 'CompteController@Compte')->name('connexion');
+Route::get('Creation-Compte', 'CompteController@AddCompte')->name('addCompte');
+Route::get('verificationCompte/{id}/{remember_token}', 'CompteController@Verification')->name('verification');
+Route::post('send_message', 'contact@send')->name('sendMessage');
 
 
 
