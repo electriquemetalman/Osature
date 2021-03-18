@@ -110,11 +110,11 @@
                             <label for="exampleInputEmail1">Investment</label>
                             <div class="row">
                                 <div class="col-6">
-                                  <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" required>
+                                  <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                 </div>
                                 
                                 <div class="col-6">
-                                  <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" required>
+                                  <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                 </div>
                               </div>
                         </div>
@@ -160,11 +160,11 @@
                             <label for="exampleInputEmail1">Investment</label>
                             <div class="row">
                                 <div class="col-6">
-                                  <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" required>
+                                  <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                 </div>
                                 
                                 <div class="col-6">
-                                  <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" required>
+                                  <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                 </div>
                               </div>
                         </div>
@@ -261,11 +261,11 @@
                                 <label for="exampleInputEmail1">Investment</label>
                                 <div class="row">
                                     <div class="col-6">
-                                      <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" required>
+                                      <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                     </div>
                                     
                                     <div class="col-6">
-                                      <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" required>
+                                      <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                     </div>
                                   </div>
                             </div>
@@ -311,11 +311,11 @@
                                 <label for="exampleInputEmail1">Investment</label>
                                 <div class="row">
                                     <div class="col-6">
-                                      <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" required>
+                                      <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                     </div>
                                     
                                     <div class="col-6">
-                                      <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" required>
+                                      <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                     </div>
                                   </div>
                             </div>
