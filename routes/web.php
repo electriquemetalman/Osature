@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'ConfigurationController@Welcome');
+Route::get('/', 'ConfigurationController@Welcome')->name('welcome');
 
 
 Route::get('Connexion', 'CompteController@Compte')->name('connexion');

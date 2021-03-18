@@ -26,7 +26,9 @@ class ConfigurationController extends Controller
         $AboutList = ModelsAbout::get();
         $FaqList = ModelsFaq::get();
         $InvestmentList = ModelsInvest::get();
-        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList'));
+        $contact= adresse::get();
+
+        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList','contact'));
     }
 
     //enregistrement des adresses
