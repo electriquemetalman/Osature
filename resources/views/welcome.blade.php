@@ -25,7 +25,7 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-        @include('sections/about')
+        @include('sections/about', compact('AboutList'))
     <!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
@@ -60,11 +60,11 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Sinvesment Section ======= -->
-         @include('sections/invesment')
+         @include('sections/invesment', compact('InvestmentList'))
     <!-- End invesment Section -->
 
     <!-- ======= Faq Section ======= -->
-        @include('sections/faq')
+        @include('sections/faq', compact('FaqList'))
 
       @include('sections/contact')
     <!-- End Contact Section -->

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\passePartoutRequest;
 use App\models\adresse;
+use App\models\about as ModelsAbout;
+use App\models\investissement as ModelsInvest;
+use App\models\faq as ModelsFaq;
 use Illuminate\Http\Request;
 
 class ConfigurationController extends Controller
@@ -15,6 +18,15 @@ class ConfigurationController extends Controller
         $adresse = adresse::first();
         $title = 'Contact';
         return view('administration.index', compact('title', 'adresse'));
+    }
+
+    //aficher les config du site
+    public function Welcome()
+    {
+        $AboutList = ModelsAbout::get();
+        $FaqList = ModelsFaq::get();
+        $InvestmentList = ModelsInvest::get();
+        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList'));
     }
 
     //enregistrement des adresses

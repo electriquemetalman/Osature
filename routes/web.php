@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-        $contact=adresse::get();
-    return view('welcome',compact('contact'));
-})->name('welcome');
+Route::get('/', 'ConfigurationController@Welcome');
+
 
 Route::get('Connexion', 'CompteController@Compte')->name('connexion');
 Route::get('Creation-Compte', 'CompteController@AddCompte')->name('addCompte');

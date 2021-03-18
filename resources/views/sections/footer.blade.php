@@ -64,10 +64,10 @@
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://m.facebook.com/Osaturegroup-106667274767303/?ref=bookmarks" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/osaturegroup/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://t.me/joinchat/GGOlacic6O_WOkxk" class="telegram"><i class="bx bxl-telegram"></i></a>
-          <a href="https://www.linkedin.com/onboarding/start/follow-recommendations/new/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href = "https://m.facebook.com/Osaturegroup-106667274767303/?ref=bookmarks" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href = "https://www.instagram.com/osaturegroup/" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href = "https://t.me/joinchat/GGOlacic6O_WOkxk" class="telegram"><i class="bx bxl-telegram"></i></a>
+          <a href = "https://www.linkedin.com/onboarding/start/follow-recommendations/new/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 

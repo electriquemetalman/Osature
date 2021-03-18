@@ -57,6 +57,12 @@ class About extends Component
         return ModelsAbout::select('id', 'security', 'guarantee', 'income', 'howework')->get();
     }
 
+    /*public function getAboutProperty()
+    {
+        $AboutList = ModelsAbout::select('id', 'security', 'guarantee', 'income', 'howework')->get();
+        return view('welcome', compact('AboutList'));
+    }*/
+
     public function voir($id)
     {
         $reponse = ModelsAbout::find($id);
