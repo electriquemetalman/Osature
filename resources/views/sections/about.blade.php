@@ -31,7 +31,7 @@ Purchase sale of currency pairs, then in the next step the amount of profit rece
               @endforeach
           </div>
           <div class="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay="100">
-            <img src="image/image about.JPG" alt="" class="img-fluid" style="height: 80%; ">
+            <img src="image/image about.JPG" alt="" class="img-fluid" style="height: 700px; ">
           </div>
         </div>
 
