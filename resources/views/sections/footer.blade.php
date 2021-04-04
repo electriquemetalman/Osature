@@ -16,28 +16,28 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Trading Robots</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Ivesment</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Faq</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">O'starter</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">O'premium</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">O'emperor</a></li>
+              <!--<li><i class="bx bx-chevron-right"></i> <a href="#">Faq</a></li>-->
+              <!--<li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>-->
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Crypto currency</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Trading</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Dropshiping</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">i-laerning</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">O'sliver</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">O'gold</a></li>
+              <!--<li><i class="bx bx-chevron-right"></i> <a href="#">i-laerning</a></li>-->
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p></p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>

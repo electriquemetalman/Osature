@@ -8,16 +8,17 @@
 
         <div class="faq-list">
           <ul>
-            @foreach ($FaqList as $faq)
-                <li data-aos="fade-up" data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">{{ $faq->libelle }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
+            @foreach ($FaqList as $key=>$faq)
+                <li data-aos="fade-up"  data-aos-delay="200">
+                <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-{{ $key }}">{{ $faq->libelle }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-{{ $key }}" class="collapse show" data-parent=".faq-list">
                     <p>
                         {{ $faq->reponse }}
                     </p>
                 </div>
                 </li>
             @endforeach
+
 
             <!--<li data-aos="fade-up" data-aos-delay="200">
               <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Qui gere le porte feuille d4investissement? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>

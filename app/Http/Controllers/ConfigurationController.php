@@ -25,10 +25,11 @@ class ConfigurationController extends Controller
     {
         $AboutList = ModelsAbout::get();
         $FaqList = ModelsFaq::get();
+        $N = ModelsFaq::count();
         $InvestmentList = ModelsInvest::get();
-        $contact= adresse::get();
+        $contact = adresse::get();
 
-        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList','contact'));
+        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList', 'contact'));
     }
 
     //enregistrement des adresses
