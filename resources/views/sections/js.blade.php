@@ -5,32 +5,51 @@
 
 
   <!-- Vendor JS Files -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="vendor/php-email-form/validate.js"></script>
-  <script src="vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="vendor/counterup/counterup.min.js"></script>
-  <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="vendor/venobox/venobox.min.js"></script>
-  <script src="vendor/aos/aos.js"></script>
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+  <script src="{{asset('vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{asset('vendor/waypoints/jquery.waypoints.min.js')}}"></script>
+  <script src="{{asset('vendor/counterup/counterup.min.js')}}"></script>
+  <script src="{{asset('vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('vendor/venobox/venobox.min.js')}}"></script>
+  <script src="{{asset('vendor/aos/aos.js')}}"></script>
   <!-- Template Main JS File -->
-  <script src="js/main.js"></script>
-  <script src="vendor/toastr/toastr.js"></script>
+  <script src="{{asset('js/main.js')}}"></script>
+  <script src="{{asset('vendor/toastr/toastr.js')}}"></script>
+  <script src="{{asset('js/jquery.form.js')}}"></script>
 
   @livewireScripts
 
-
+<script>
+   $(document).on('click','.opencomment',function(){
+    url = $(this).data('lien');
+    $('#modalComment').modal('show');
+    $('#modalComment .modal-content').html('<h3 style="text-align:center; margin:5px"><i class="fa fa-spin fa-spinner"></i> Chargement en cours...</h3>');
+    $.ajax({
+            type: "GET",
+            url: url,
+            dataType: "text",
+            success: function(data){
+              $('#modalComment .modal-content').html(data);
+              $('.textarea').summernote()
+            }
+          });
+  });
+</script>
 <script>
   window.addEventListener('alert', event => { 
-               toastr[event.detail.type](event.detail.message, 
-               event.detail.title ?? ''), toastr.options = {
-                      "timeOut": 50000,
-                      "progressBar": true,
-                      "closeButton": true,
-                  }
-              });
+      toastr[event.detail.type](
+        event.detail.message, 
+        event.detail.title ?? ''
+      ), 
+      toastr.options = {
+            "timeOut": 50000,
+            "progressBar": true,
+            "closeButton": true,
+        }
+  });
 
               
   @if(Session::has('success'))
