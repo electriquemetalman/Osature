@@ -23,6 +23,9 @@ class NewInvestment extends Component
     public $contractLengh;
     public $profMonth;
     public $profit;
+    public $userlimit;
+    public $principalback;
+    public $profitaccouting;
 
 
 
@@ -45,6 +48,9 @@ class NewInvestment extends Component
         $this->profMonth = null;
         $this->contractLengh = null;
         $this->profit = null;
+        $this->userlimit = null;
+        $this->principalback = null;
+        $this->profitaccouting = null;
     }
 
     public function AjouterInv()
@@ -80,9 +86,17 @@ class NewInvestment extends Component
 
                         'profitjourmin' => $this->dayProf1,
 
+                        'profitjourmax' => $this->dayProf2,
+
                         'dureecontrat' => $this->contractLengh,
 
                         'profit' => $this->profit,
+
+                        'userlimit' => $this->userlimit,
+
+                        'principalback' => $this->principalback,
+
+                        'profitaccouting' => $this->profitaccouting,
 
                     ]
                 );
@@ -123,6 +137,9 @@ class NewInvestment extends Component
         $this->profMonth = $reponse->profitmois;
         $this->contractLengh = $reponse->dureecontrat;
         $this->profit = $reponse->profit;
+        $this->userlimit = $reponse->userlimit;
+        $this->principalback = $reponse->principalback;
+        $this->profitaccouting = $reponse->profitaccouting;
 
         $this->identificateur = $id;
         $this->vueNonVue(false, true, false);
@@ -162,10 +179,13 @@ class NewInvestment extends Component
                             'investmin' => $this->inv1,
                             'investmax' => $this->inv2,
                             'profitjourmin' => $this->dayProf1,
-                            'profitjourmax' => null,
+                            'profitjourmax' => $this->dayProf2,
                             'profitmois' => $this->profMonth,
                             'dureecontrat' => $this->contractLengh,
                             'profit' => $this->profit,
+                            'userlimit' => $this->userlimit,
+                            'principalback' => $this->principalback,
+                            'profitaccouting' => $this->profitaccouting,
 
                         ]
                     );
