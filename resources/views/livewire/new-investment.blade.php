@@ -1,5 +1,5 @@
 <div>
-    
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -15,7 +15,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                
+
                 @if ($liste)
                     <!-- /.card -->
 
@@ -47,10 +47,10 @@
                       <td>{{ $item->investmin }}$ ---- {{ $item->investmax }}$</td>
                       @if ($item->type=='Trading Robots')
                       <td>{{ $item->profitjourmin }}% ---- {{ $item->profitjourmax }}%</td>
-                          
+
                       @else
                       <td>{{ $item->profitjourmin }}%</td>
-                          
+
                       @endif
                       <td>{{ $item->dureecontrat }}</td>
                       <td>
@@ -59,7 +59,7 @@
                       </td>
                     </tr>
                     @endforeach
-                  
+
                   </tbody>
                 </table>
               </div>
@@ -112,7 +112,7 @@
                                 <div class="col-6">
                                   <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                 </div>
-                                
+
                                 <div class="col-6">
                                   <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                 </div>
@@ -125,7 +125,7 @@
                                 <div class="col-6">
                                   <input type="number" class="form-control" wire:model.lazy='dayProf1' min="1" step="0.1"  max="{{ $dayProf2-1 }}" placeholder="Minimum" required>
                                 </div>
-                                
+
                                 <div class="col-6">
                                   <input type="number" class="form-control" wire:model.lazy='dayProf2' step="0.1"  min="{{ $dayProf1+1 }}" placeholder="Maximum" required>
                                 </div>
@@ -162,7 +162,7 @@
                                 <div class="col-6">
                                   <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                 </div>
-                                
+
                                 <div class="col-6">
                                   <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                 </div>
@@ -170,29 +170,50 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Daily profit</label>
-                                  <input type="number" class="form-control" wire:model.lazy='dayProf1' step="0.1"  min="1" placeholder="Daily profit" required>
-                        </div>
+                                <label for="exampleInputEmail1">Daily profit</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                      <input type="number" class="form-control" wire:model.lazy='dayProf1' min="1" step="0.1"  max="{{ $dayProf2-1 }}" placeholder="Minimum" required>
+                                    </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Contact lenght</label>
-                            <input type="number" class="form-control" wire:model.lazy='contractLengh'
-                                placeholder="Contact lenght" min="1" required>
-                        </div>
+                                    <div class="col-6">
+                                      <input type="number" class="form-control" wire:model.lazy='dayProf2' step="0.1"  min="{{ $dayProf1+1 }}" placeholder="Maximum" >
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Contact lenght</label>
+                                <input type="number" class="form-control" wire:model.lazy='contractLengh'
+                                    placeholder="Contact lenght" min="1" required>
+                            </div>
 
 
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">All the profits</label>
-                            <input type="number" class="form-control" wire:model.lazy='profit'
-                                placeholder="All the profits" min="1" step="0.1" required>
-                        </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Principal back</label>
+                                <input type="text" class="form-control" wire:model.lazy='principalback'
+                                    placeholder="Principal back" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Profit accounting</label>
+                                <input type="text" class="form-control" wire:model.lazy='profitaccouting'
+                                    placeholder="Profit accounting" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Users limite</label>
+                                <input type="number" class="form-control" wire:model.lazy='userlimit'
+                                    placeholder="Users limite" >
+                            </div>
 
                         @if (session()->has('message'))
                         <div class="alert alert-info text-center alert-dismissible">
                             {{ session('message') }}
                         </div>
                       @endif
-      
+
                       @if (session()->has('error'))
                           <div class="alert alert-danger text-center upper alert-dismissible">
                               {{ session('error') }}
@@ -200,7 +221,7 @@
                       @endif
 
                         @endif
-                        
+
 
 
                     </div>
@@ -223,7 +244,7 @@
 
 
                     @if ($ajouterFaq)
-                   
+
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Ajouter un Investissement.</h3>
@@ -263,7 +284,7 @@
                                     <div class="col-6">
                                       <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                     </div>
-                                    
+
                                     <div class="col-6">
                                       <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                     </div>
@@ -276,7 +297,7 @@
                                     <div class="col-6">
                                       <input type="number" class="form-control" wire:model.lazy='dayProf1' min="1" step="0.1"  max="{{ $dayProf2-1 }}" placeholder="Minimum" required>
                                     </div>
-                                    
+
                                     <div class="col-6">
                                       <input type="number" class="form-control" wire:model.lazy='dayProf2' step="0.1"  min="{{ $dayProf1+1 }}" placeholder="Maximum" required>
                                     </div>
@@ -313,7 +334,7 @@
                                     <div class="col-6">
                                       <input type="number" class="form-control" wire:model.lazy='inv1' min="1"  max="{{ $inv2-1 }}" placeholder="Minimum" step="0.01" required>
                                     </div>
-                                    
+
                                     <div class="col-6">
                                       <input type="number" class="form-control" wire:model.lazy='inv2'  min="{{ $inv1+1 }}" placeholder="Maximum" step="0.01" required>
                                     </div>
@@ -322,7 +343,15 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Daily profit</label>
-                                      <input type="number" class="form-control" wire:model.lazy='dayProf1' step="0.1"  min="1" placeholder="Daily profit" required>
+                                <div class="row">
+                                    <div class="col-6">
+                                      <input type="number" class="form-control" wire:model.lazy='dayProf1' min="1" step=""  max="{{ $dayProf2-1 }}" placeholder="Minimum" required>
+                                    </div>
+
+                                    <div class="col-6">
+                                      <input type="number" class="form-control" wire:model.lazy='dayProf2' step=""  min="{{ $dayProf1+1 }}" placeholder="Maximum" >
+                                    </div>
+                                  </div>
                             </div>
 
                             <div class="form-group">
@@ -333,13 +362,26 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">All the profits</label>
-                                <input type="number" class="form-control" wire:model.lazy='profit'
-                                    placeholder="All the profits" min="1" step="0.1" required>
+                                <label for="exampleInputEmail1">Principal back</label>
+                                <input type="text" class="form-control" wire:model.lazy='principalback'
+                                    placeholder="Principal back" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Profit accounting</label>
+                                <input type="text" class="form-control" wire:model.lazy='profitaccouting'
+                                    placeholder="Profit accounting" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Users limite</label>
+                                <input type="number" class="form-control" wire:model.lazy='userlimit'
+                                    placeholder="Users limite" >
                             </div>
 
                             @endif
-                            
+
 
 
                         </div>
@@ -349,7 +391,7 @@
                             {{ session('message') }}
                         </div>
                       @endif
-      
+
                       @if (session()->has('error'))
                           <div class="alert alert-danger text-center upper alert-dismissible">
                               {{ session('error') }}
@@ -364,12 +406,12 @@
                                 wire:loading> Patientez svp ... </button>
                         </div>
                         @endif
-                        
+
                     </form>
                 </div>
                     @endif
 
-                   
+
 
                 </div>
             </div>

@@ -25,7 +25,7 @@
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
-  
+
   <link href="vendor/toastr/toastr.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Techie - v2.1.0
