@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use Auth;
-use App\Models\News;
-use App\Models\Comments;
+use App\models\News;
+use App\models\Comments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
