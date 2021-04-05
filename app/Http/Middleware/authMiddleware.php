@@ -18,7 +18,6 @@ class authMiddleware
         if (auth()->guest()) {
             session()->flash("error", "Erreur! Votre session a expirée, Veuillez vous reconnecter.");
             return redirect()->route('connexion');
-            
         }
         
         return $next($request);
