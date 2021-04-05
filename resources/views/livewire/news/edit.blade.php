@@ -30,11 +30,12 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal"  id="fermer">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Save <i class="fa fa-spinner fa-spin" style="display: none"></i></button>
         </div>
     </form>
     <script type="text/javascript">
         $('form').on('submit', function(){ 
+            $('.fa-spin').show();
             $(this).ajaxSubmit({
                 beforeSend: function() {
                     
@@ -49,10 +50,12 @@
                         location.reload();
                     }
                     else{
+                        $('.fa-spin').hide();
                         $('#infoslogin').html(data.reason);
                     }
                 },
                 error: function(xhr, statusText, err) {
+                    $('.fa-spin').hide();
                     alert("Problème lors de l'enregistrement "+xhr.responseText);
                 }
             }); 
