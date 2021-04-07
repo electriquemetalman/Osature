@@ -27,12 +27,12 @@
 
             <article class="entry entry-single">
 
-              <div class="entry-img text-center">
+              <div class="entry-img text-center" style="max-height:800px">
                 <img src="/{{$news->image=='' ? 'default.png':'image/news/'.$news->image}}" alt="" class="img-fluid">
               </div>
 
               <h2 class="entry-title">
-                <a href="detail/{{$news->id}}">{{$news->title}}</a>
+                <a href="/detail/{{$news->id}}">{{$news->title}}</a>
               </h2>
               <div class="entry-content">
                   <p>{!!$news->content!!}</p>

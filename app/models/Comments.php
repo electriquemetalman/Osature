@@ -15,7 +15,7 @@ class Comments extends Model
         return $this->belongsTo(News::class);
     }
     public function compte(){
-        return $this->belongsTo(Compte::class);
+        return $this->belongsTo(compte::class);
     }
     public function comments(){
         return $this->hasMany(Comments::class)->orderBy('created_at','desc');

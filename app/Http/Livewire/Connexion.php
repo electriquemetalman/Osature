@@ -33,12 +33,15 @@ class Connexion extends Component
             $reponse = Auth::attempt(['email' => $email, 'password' => $password,'statut'=>true]);
                 
             if ($reponse) {
+                if(session()->has('url.intended') && session('url.intended')!=null)
+                {
+                    return \redirect(session('url.intended'));
+                }
                 return \redirect()->route('index_admin_path');
     
             } else {    
                 $this->dispatchBrowserEvent('alert', 
                 ['type' => 'error',  'message' => "Votre compte est inactif. Veuillez l'activer à travers l'email que vous avez reçu."]);
-
             }
 
                 
