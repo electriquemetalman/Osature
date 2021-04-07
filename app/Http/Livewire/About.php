@@ -76,30 +76,26 @@ class About extends Component
 
     public function ModifierAbout()
     {
-        $reponse = ModelsAbout::whereSecurity($this->security)->first();
-        if ($reponse) {
-            \session()->flash("error", "ce About us existe deja");
-        } else {
-            $reponse = ModelsAbout::whereId($this->identificateur)
-                ->update(
-                    [
-                        'security' => $this->security,
-                        'guarantee' => $this->guarantee,
-                        'income' => $this->income,
-                        'howework' => $this->howework,
-                    ]
-                );
 
-            if ($reponse) {
-                session()->flash("message", "About us modifié avec success");
-                $this->vueNonVue(false, false, true);
-                $this->security  = null;
-                $this->guarantee = null;
-                $this->income    = null;
-                $this->howework  = null;
-            } else {
-                session()->flash("error", "Erreur! le About us n'a pas été modifié");
-            }
+        $reponse = ModelsAbout::whereId($this->identificateur)
+            ->update(
+                [
+                    'security' => $this->security,
+                    'guarantee' => $this->guarantee,
+                    'income' => $this->income,
+                    'howework' => $this->howework,
+                ]
+            );
+
+        if ($reponse) {
+            session()->flash("message", "About us modifié avec success");
+            $this->vueNonVue(false, false, true);
+            $this->security  = null;
+            $this->guarantee = null;
+            $this->income    = null;
+            $this->howework  = null;
+        } else {
+            session()->flash("error", "Erreur! le About us n'a pas été modifié");
         }
     }
 
