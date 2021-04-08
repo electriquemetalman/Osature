@@ -53,7 +53,7 @@ class CreerCompte extends Component
                             'apm'=>$this->apm,
                             'bitcoins'=>$this->bitcoin,
                             'payeer'=>$this->payeer,
-                            'type'=>'cleint',
+                            'type'=>'client',
                             'statut'=>0,
                             'remember_token'=>$this->token
                         ]

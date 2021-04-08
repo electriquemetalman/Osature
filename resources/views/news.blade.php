@@ -21,8 +21,8 @@
       <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
   
+          @if($news->count()!=0)
           <div class="row">
-  
             <div class="col-lg-8 entries">
               <style>
                 .text{
@@ -48,7 +48,7 @@
                   color: white;
                   background-color: #5846f9!important;
                 } */
-            </style>
+              </style>
               @foreach ($news as $new)
               <article class="entry">
   
@@ -79,15 +79,6 @@
             <div class="col-lg-4">
   
               <div class="sidebar">
-  
-                {{-- <h3 class="sidebar-title">Search</h3>
-                <div class="sidebar-item search-form">
-                  <form action="">
-                    <input type="text">
-                    <button type="submit"><i class="bi bi-search"></i></button>
-                  </form>
-                </div> --}}
-  
                 <h3 class="sidebar-title">Recent Posts</h3>
                 <div class="sidebar-item recent-posts">
                   @foreach($news_list as $n)
@@ -103,9 +94,14 @@
               </div><!-- End sidebar -->
   
             </div><!-- End blog sidebar -->
-  
           </div>
-  
+          @else
+          <div class="row">
+            <div class="col-lg-12 entries col-md-12 mt-5 mb-5">
+              <h4 class="text-center">No news found</h4>
+            </div>
+          </div>
+          @endif
         </div>
       </section><!-- End Blog Section -->
 </main>
