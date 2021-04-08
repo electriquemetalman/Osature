@@ -24,15 +24,22 @@ Route::get('Creation-Compte', 'CompteController@AddCompte')->name('addCompte');
 Route::get('verificationCompte/{id}/{remember_token}', 'CompteController@Verification')->name('verification');
 Route::post('send_message', 'contact@send')->name('sendMessage');
 
+/**
+ * Route de deconnexion pour un administrateur et un client
+ */
+Route::get('Administration|deconnexion', 'CompteController@Deconnexion')->name('admin_Deconnexion_path');
+
 Route::middleware([connexion::class])->group(function () {
     Route::get('Administration', 'CompteController@Administrer')->name('index_admin_path');
     Route::get('Administration|Contact', 'ConfigurationController@Contact')->name('admin_contact_path');
     Route::post('Administration-saveContact', 'ConfigurationController@saveContact')->name('save_contact_admin_path');
     Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
-    Route::get('Administration|deconnexion', 'CompteController@Deconnexion')->name('admin_Deconnexion_path');
     Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
     Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
 
+    /**
+     * Routes News
+     */
     Route::get('/Administration|news', 'NewsController@index');
     Route::get('/news/add', 'NewsController@add');
     Route::get('/news/edit/{id}', 'NewsController@edit');
@@ -44,4 +51,11 @@ Route::middleware([connexion::class])->group(function () {
     Route::post('/news', 'NewsController@create')->name('news.store');
     Route::post('/news/update/{id}', 'NewsController@update');
     Route::delete('/news/delete/{id}', 'NewsController@destroy');
+});
+
+/**
+ * Routes espace client
+ */
+Route::middleware([client::class])->group(function () {
+    Route::get('Client', 'CompteController@Client')->name('index_client_path');
 });

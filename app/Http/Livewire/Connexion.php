@@ -27,17 +27,20 @@ class Connexion extends Component
 
             
             $reponse1=Hash::check($this->mdp, $reponse->password);
-            //dd($reponse1);
 
             if ($reponse1) {
-            $reponse = Auth::attempt(['email' => $email, 'password' => $password,'statut'=>true]);
+            $resp = Auth::attempt(['email' => $email, 'password' => $password,'statut'=>true]);
                 
-            if ($reponse) {
+            if ($resp) {
                 if(session()->has('url.intended') && session('url.intended')!=null)
                 {
                     return \redirect(session('url.intended'));
                 }
-                return \redirect()->route('index_admin_path');
+                if($reponse->type=="administrateur"){
+                    return \redirect()->route('index_admin_path');
+                }else{
+                    return \redirect()->route('index_client_path');
+                }
     
             } else {    
                 $this->dispatchBrowserEvent('alert', 

@@ -28,6 +28,11 @@ class compteController extends Controller
         return view('administration.index', compact('title'));
     }
 
+    public function Client()
+    {
+        $title = 'Accueil';
+        return view('client.layouts.home', compact('title'));
+    }
 
     public function Deconnexion(Request $request)
     {
