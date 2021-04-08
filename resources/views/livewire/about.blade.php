@@ -21,7 +21,7 @@
               <div class="card-header">
                 <h3 class="card-title">Abut us actuelle.</h3>
                 <div class="card-footer text-right">
-                  <button type="button" class="btn btn-primary" wire:click='ajouter'>Ajouter</button>
+                  <!--<button type="button" class="btn btn-primary" wire:click='ajouter'>Ajouter</button>-->
               </div>
               </div>
               <!-- /.card-header -->
@@ -39,7 +39,7 @@
                       <td>{{ $item->security }}</td>
                       <td>
                         <a href="#" data-toggle="modal" wire:click="voir({{ $item->id }})"><code class="badge badge-success" >Voir / Modifier</code></a>
-                        <a href="#" data-toggle="modal" wire:click="supprimer({{ $item->id }})"><code class="badge badge-danger" >Supprimer</code></a>
+                        <!--<a href="#" data-toggle="modal" wire:click="supprimer({{ $item->id }})"><code class="badge badge-danger" >Supprimer</code></a>-->
                       </td>
                     </tr>
                     @endforeach
