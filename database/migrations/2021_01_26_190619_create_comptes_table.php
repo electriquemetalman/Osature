@@ -21,11 +21,11 @@ class CreateComptesTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('pays');
-            $table->string('apm');
+            // $table->string('apm');
             $table->string('image')->nullable();
             // $table->string('bitcoins')->nullable();
             // $table->string('payeer');
-            // $table->string('type')->nullable();
+            $table->string('type')->nullable();
             $table->boolean('statut')->default(false);
             $table->rememberToken();
             $table->timestamps();

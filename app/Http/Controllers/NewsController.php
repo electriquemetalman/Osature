@@ -78,13 +78,14 @@ class NewsController extends Controller
                     ]);
         }
 
-        $profileImage = $request->file('image'); 
-        $profileImageSaveAsName = time(). Auth::id() ."-news.".$profileImage->getClientOriginalExtension();
-        $upload_path=public_path('image/news/'.$profileImageSaveAsName);
-
-        // $success = $profileImage->move($upload_path, $profileImageSaveAsName);
-        move_uploaded_file($profileImage,$upload_path);
-        
+        if($request->hasFile('image')){
+            $profileImage = $request->file('image'); 
+            $profileImageSaveAsName = time(). Auth::id() ."-news.".$profileImage->getClientOriginalExtension();
+            $upload_path=public_path('image/news/'.$profileImageSaveAsName);
+            move_uploaded_file($profileImage,$upload_path);
+        }else{
+            $profileImageSaveAsName = '';
+        }
         $news= News::create([
             'title' => $request->titre,
             'content' => $request->description,
