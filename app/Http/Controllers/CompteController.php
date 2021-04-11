@@ -12,7 +12,7 @@ class compteController extends Controller
 
 
     public function Compte()
-    {
+    { 
         return view('compte.connection');
 
     }
@@ -26,12 +26,6 @@ class compteController extends Controller
     {
         $title = 'Accueil';
         return view('administration.index', compact('title'));
-    }
-
-    public function Client()
-    {
-        $title = 'Accueil';
-        return view('client.layouts.home', compact('title'));
     }
 
     public function Deconnexion(Request $request)

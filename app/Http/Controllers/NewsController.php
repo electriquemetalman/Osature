@@ -106,6 +106,23 @@ class NewsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'titre' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|max:5120',
+        ]);
+
+        if ($validator->fails()) {
+            $reason='';
+            foreach ($validator->errors()->all() as $error){
+                $reason.='<li>'.$error.'</li>';
+            }
+            return response()->json([
+                        'state' => 'error',
+                        'reason' => $reason
+                    ]);
+        }
+
         $new = News::find($id);
         if($request->hasFile('image')){
             $profileImage = $request->file('image'); 

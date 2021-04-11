@@ -20,25 +20,23 @@ class Connexion extends Component
     {
         $email = $this->email;
         $password = $this->mdp;
-
         $reponse=compte::whereEmail($email)->first();
-
         if ($reponse) {
-
             
             $reponse1=Hash::check($this->mdp, $reponse->password);
 
-            if ($reponse1) {
+            if (true) {
             $resp = Auth::attempt(['email' => $email, 'password' => $password,'statut'=>true]);
                 
             if ($resp) {
-                if(session()->has('url.intended') && session('url.intended')!=null)
+                if(session()->has('url.intended') && session('url.intended')!=null && session('url.intended')!=url('/'))
                 {
                     return \redirect(session('url.intended'));
                 }
+                
                 if($reponse->type=="administrateur"){
                     return \redirect()->route('index_admin_path');
-                }else{
+                }else{ 
                     return \redirect()->route('index_client_path');
                 }
     

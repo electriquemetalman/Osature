@@ -23,8 +23,6 @@ class authMiddleware
             session()->flash("error", "Erreur! Votre session a expirée, Veuillez vous reconnecter.");
             return redirect()->route('connexion');
 
-        }else if(auth()->user()->type!="administrateur"){
-            return redirect()->route('index_client_path');
         }
         
         return $next($request);
