@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'ConfigurationController@Welcome')->name('welcome');
 Route::get('news', 'ConfigurationController@News')->name('news');
 Route::get('detail/{id}', 'ConfigurationController@detail')->name('news');
+Route::get('Passoublier', 'PassOubliercontroller@passOublier')->name('passOublier');
+Route::post('Sendmail', 'PassOubliercontroller@sendMail')->name('sendMail');
 
 Route::get('Connexion', 'CompteController@Compte')->name('connexion');
 Route::get('Creation-Compte', 'CompteController@AddCompte')->name('addCompte');

@@ -51,7 +51,8 @@
                           </div>
 
                           <div class="text-right text-teal">
-                            <span >Vous n'avez pas de compte? </span> <a href="{{ route('addCompte') }}">Cliquez ici</a> 
+                            <span >Vous n'avez pas de compte? </span> <a href="{{ route('addCompte') }}">Cliquez ici</a><br/><br/>
+                            <a href="{{ route('passOublier') }}">mot de passe oublié</a>
                          </div>
 
                             <br>
@@ -70,7 +71,7 @@
                 </div>
             </div>
             <!-- /Shiping Details -->
-            
+
 
         </div>
         <!-- /Order Details -->

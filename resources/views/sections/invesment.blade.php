@@ -3,11 +3,15 @@
 
         <div class="section-title">
           <h2 class="menus">Investment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>We accept Bitcoin. Perfect Money. Payeer</p>
         </div><br/><br/>
 
         <div class="section-title">
-            <h3 style="color:rgba(3, 1, 75, 0.9); font-weight:bold">Trading Robots</h3>
+            <h3 style="color:rgba(3, 1, 75, 0.9); font-weight:bold">Trading Robots</h3><br/>
+            <p>
+                Automatic trading systems are computer programs that automatically buy or sell various assets at the right time to make a profit.
+                Rigor, regularity and profitability are the 3 key principles of our trading bots
+            </p>
         </div><br/><br/>
 
         <div class="row">
@@ -67,7 +71,10 @@
         </div><br/>
 
         <div class="section-title">
-            <h3 style="color:rgba(3, 1, 75, 0.9); font-weight:bold">Crypto currency</h3>
+            <h3 style="color:rgba(3, 1, 75, 0.9); font-weight:bold">Crypto currency</h3><br/>
+            <p>
+                Cryptocurrency is a digital form of currency that is used as a medium of exchange within a distributed network of users. Unlike traditional banking systems, these transactions are tracked by a public digital ledger (blockchain) and can take place directly between participants (in a peer-to-peer environment) without the need for third-party intermediaries.
+            </p>
         </div><br/><br/>
 
         <div class="row">

@@ -21,45 +21,44 @@ class Connexion extends Component
         $email = $this->email;
         $password = $this->mdp;
 
-        $reponse=compte::whereEmail($email)->first();
+        $reponse = compte::whereEmail($email)->first();
 
         if ($reponse) {
 
-            
-            $reponse1=Hash::check($this->mdp, $reponse->password);
+
+            $reponse1 = Hash::check($this->mdp, $reponse->password);
             //dd($reponse1);
 
             if ($reponse1) {
-            $reponse = Auth::attempt(['email' => $email, 'password' => $password,'statut'=>true]);
-                
-            if ($reponse) {
-                return \redirect()->route('index_admin_path');
-    
-            } else {    
-                $this->dispatchBrowserEvent('alert', 
-                ['type' => 'error',  'message' => "Votre compte est inactif. Veuillez l'activer à travers l'email que vous avez reçu."]);
+                $reponse = Auth::attempt(['email' => $email, 'password' => $password, 'statut' => true]);
 
-            }
-
-                
+                if ($reponse) {
+                    return \redirect()->route('index_admin_path');
+                } else {
+                    $this->dispatchBrowserEvent(
+                        'alert',
+                        ['type' => 'error',  'message' => "Votre compte est inactif. Veuillez l'activer à travers l'email que vous avez reçu."]
+                    );
+                }
             } else {
-                $this->mdp=null;
+                $this->mdp = null;
 
-            $this->dispatchBrowserEvent('alert', 
-            ['type' => 'error',  'message' => "Nom d'utilisateur ou mot de passe incorrect."]);
+                $this->dispatchBrowserEvent(
+                    'alert',
+                    ['type' => 'error',  'message' => "Nom d'utilisateur ou mot de passe incorrect."]
+                );
             }
-            
-            
         } else {
-            $this->mdp=null;
-            session()->flash('error','Nom d\'utilisateur ou mot de passe incorrect');
+            $this->mdp = null;
+            session()->flash('error', 'Nom d\'utilisateur ou mot de passe incorrect');
 
 
-            $this->dispatchBrowserEvent('alert', 
-            ['type' => 'error',  'message' => "Nom d'utilisateur ou mot de passe incorrect."]);
+            $this->dispatchBrowserEvent(
+                'alert',
+                ['type' => 'error',  'message' => "Nom d'utilisateur ou mot de passe incorrect."]
+            );
         }
-        
-}
+    }
 
 
     public function render()

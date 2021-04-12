@@ -36,17 +36,17 @@ class ConfigurationController extends Controller
     //aficher les news
     public function News()
     {
-        $news = News::orderby('created_at','desc')->paginate(3);
-        $news_list = News::orderby('created_at','desc')->limit(5)->get();
-        return view('news', compact('news','news_list'));
+        $news = News::orderby('created_at', 'desc')->paginate(3);
+        $news_list = News::orderby('created_at', 'desc')->limit(5)->get();
+        return view('news', compact('news', 'news_list'));
     }
 
     //aficher le detail d'une actualite
     public function detail($id)
     {
         $news = News::find($id);
-        $news_list = News::orderby('created_at','desc')->limit(5)->get();
-        return view('single', compact('news','news_list'));
+        $news_list = News::orderby('created_at', 'desc')->limit(5)->get();
+        return view('single', compact('news', 'news_list'));
     }
 
     //enregistrement des adresses

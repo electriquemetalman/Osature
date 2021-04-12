@@ -14,12 +14,10 @@ class compteController extends Controller
     public function Compte()
     {
         return view('compte.connection');
-
     }
     public function AddCompte()
     {
         return view('compte.creerCompte');
-
     }
 
     public function Administrer()
@@ -40,26 +38,28 @@ class compteController extends Controller
         return redirect('/');
     }
 
-    public function Verification($id,$token){
+    public function Verification($id, $token)
+    {
 
-        $reponse=compte::Where( 
+        $reponse = compte::Where(
             [
-                'id'=>decrypt($id),
-                'remember_token'=>$token
-            ],)->first();
+                'id' => decrypt($id),
+                'remember_token' => $token
+            ]
+        )->first();
 
-            if($reponse){
-                if ($reponse->statut==false) {
-                    $reponse->update([
-                        'statut'=>true
-                    ]);
-                }else{
-                    return redirect()->route('connexion')->with('success','Compte déjà Confirmé. Veuillez vous connecter.');
-                }
-                
-                return redirect()->route('connexion')->with('success','Compte activé avec succès. Veuillez vous connecter.');
-            }else{
-                return redirect()->route('connexion')->with('warning','Lien expiré.! veuillez renvoyer un autre Lien ici.');
+        if ($reponse) {
+            if ($reponse->statut == false) {
+                $reponse->update([
+                    'statut' => true
+                ]);
+            } else {
+                return redirect()->route('connexion')->with('success', 'Compte déjà Confirmé. Veuillez vous connecter.');
             }
+
+            return redirect()->route('connexion')->with('success', 'Compte activé avec succès. Veuillez vous connecter.');
+        } else {
+            return redirect()->route('connexion')->with('warning', 'Lien expiré.! veuillez renvoyer un autre Lien ici.');
+        }
     }
 }
