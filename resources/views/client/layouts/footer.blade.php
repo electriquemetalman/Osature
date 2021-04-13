@@ -338,6 +338,7 @@
                         </ul>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="dots-separator"></div>
                 <div class="dropdown">
                     <a class="dot-btn-wrapper" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
@@ -420,11 +421,17 @@
                         </ul>
                     </div>
                 </div>
+=======
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
             </div>
         </div>
         <div class="app-footer-right">
             <ul class="header-megamenu nav">
+<<<<<<< HEAD
                 <li class="nav-item">
+=======
+                {{-- <li class="nav-item">
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
                     <a data-placement="top" rel="popover-focus" data-offset="300" data-toggle="popover-custom" class="nav-link">
                         Footer Menu
                         <i class="fa fa-angle-up ml-2 opacity-8"></i>
@@ -539,7 +546,11 @@
                             </ul>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </li>
+=======
+                </li> --}}
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
             </ul>
         </div>
     </div>

@@ -70,6 +70,7 @@
                 </div>
             </div>
             <!-- /Shiping Details -->
+<<<<<<< HEAD
             @if ($fail_count==2)
             <div>
             <a href="{{route('recoverpw')}}">
@@ -77,6 +78,8 @@
                 </a>
             </div>
             @endif
+=======
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
             
 
         </div>

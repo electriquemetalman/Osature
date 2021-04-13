@@ -37,7 +37,11 @@
                                   <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fa fa-phone"></i></div>
                                   </div>
+<<<<<<< HEAD
                                   <input class="form-control" type="text" wire:model.lazy="nom" value="{{ $nom }}" placeholder="votre nom" autocomplete required>
+=======
+                                  <input class="form-control" type="text" wire:model.lazy="nom" value="{{ $nom }}" placeholder="votre nom" required>
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
                               </div>
 
                               <span>Prenom</span>
@@ -95,6 +99,33 @@
                                   </div>
                                   <input class="form-control" type="text" wire:model.lazy="pays" value="{{ $pays }}" placeholder="Votre pays" required>
                               </div>
+<<<<<<< HEAD
+=======
+
+                              <span>Adresse Perfect Money</span>
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
+                                  </div>
+                                  <input class="form-control" type="text" wire:model.lazy="apm" value="{{ $apm }}" placeholder="Votre Adresse Perfect Money" required>
+                              </div>
+
+                              <span>Adresse bitcoin</span>
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
+                                  </div>
+                                  <input class="form-control" type="text" wire:model.lazy="bitcoin" value="{{ $bitcoin }}" placeholder="Votre Adresse bitcoin" required>
+                              </div>
+
+                              <span>Adresse Payeer</span>
+                                <div class="input-group mb-2 mr-sm-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
+                                  </div>
+                                  <input class="form-control" type="text" wire:model.lazy="payeer" value="{{ $payeer }}" placeholder="Votre Adresse Payeer" required>
+                              </div>
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
     
                               <div class="text-right text-teal">
                                 <span >Vous avez un compte? </span> <a href="{{ route('connexion') }}">Cliquez ici</a> 
@@ -107,8 +138,13 @@
                                 </div>
                                 @endif
                                 <div class="form-group text-center">
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-primary" wire:target='create' wire:loading.remove>Creer</button>
                                     <input type="button" class="btn btn-primary" value="Patientez..." wire:target='create' wire:loading >
+=======
+                                    <button type="submit" class="btn btn-primary" wire:target='connexion' wire:loading.remove>Creer</button>
+                                    <input type="button" class="btn btn-primary" value="Patientez..." wire:target='connexion' wire:loading >
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
                                 </div>
     
                             </div>

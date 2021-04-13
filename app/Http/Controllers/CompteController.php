@@ -45,6 +45,7 @@ class compteController extends Controller
             [
                 'id'=>decrypt($id),
                 'remember_token'=>$token
+<<<<<<< HEAD
             ])->first();
 
             if($reponse){
@@ -59,10 +60,25 @@ class compteController extends Controller
 
                 }
                 
+=======
+            ],)->first();
+
+            if($reponse){
+                if ($reponse->statut==false) {
+                    $reponse->update([
+                        'statut'=>true
+                    ]);
+                }else{
+                    return redirect()->route('connexion')->with('success','Compte déjà Confirmé. Veuillez vous connecter.');
+                }
+                
+                return redirect()->route('connexion')->with('success','Compte activé avec succès. Veuillez vous connecter.');
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
             }else{
                 return redirect()->route('connexion')->with('warning','Lien expiré.! veuillez renvoyer un autre Lien ici.');
             }
     }
+<<<<<<< HEAD
 
     public function ListeCompte(){
         $title = 'Compte';
@@ -93,4 +109,6 @@ class compteController extends Controller
     }
 
     
+=======
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
 }

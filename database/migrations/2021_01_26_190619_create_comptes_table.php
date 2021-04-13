@@ -18,6 +18,7 @@ class CreateComptesTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('nomuser');
+<<<<<<< HEAD
             $table->string('email');
             $table->string('password');
             $table->string('pays');
@@ -28,6 +29,17 @@ class CreateComptesTable extends Migration
             $table->boolean('statut')->default(false);
             $table->boolean('verif_email')->default(false);
             $table->boolean('mdp_forget')->default(true);
+=======
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('pays');
+            // $table->string('apm');
+            $table->string('image')->nullable();
+            // $table->string('bitcoins')->nullable();
+            // $table->string('payeer');
+            $table->string('type')->nullable();
+            $table->boolean('statut')->default(false);
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
             $table->rememberToken();
             $table->timestamps();
         });
