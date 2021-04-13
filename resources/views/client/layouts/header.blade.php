@@ -409,7 +409,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a href="{{route('compteUser')}}" class="nav-link btn btn-wide">Mes comptes
-                                                    <div class="ml-auto badge badge-pill badge-info">1</div>                                                    
+                                                    <div class="ml-auto badge badge-pill badge-info">{{auth()->user()->compteUsers->count()}}</div>                                                    
                                                 </a>
                                             </li>
                                             <li class="nav-item">

@@ -13,7 +13,38 @@
 
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/pe-icon-7-stroke.min.css')}}">
-    
+
+    <div class="modal fade show" id="modalAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade show" id="modalAll1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modaldelete" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>Voulez vous vraiment supprimer cet élément ?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Fermer</button>
+                    <button  id="delete" class="btn btn-danger waves-effect waves-light">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </head>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
@@ -39,10 +70,45 @@
     
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/jquery.form.js')}}"></script>
 
 </body>
 <script type="text/javascript">
+    $(document).on('click','.btnedit',function(){
+        url = $(this).data('lien');
+        modal = $(this).data('modal');
+        $('#'+modal).modal('show');
+        $('#'+modal+' .modal-content').html('<h3 style="text-align:center; margin:5px"><i class="fa fa-spin fa-spinner"></i> Chargement en cours...</h3>');
+        $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "text",
+                success: function(data){
+                $('#'+modal+' .modal-content').html(data);
+                }
+          });
+    });
+
+    $(document).on('click','#delete',function(){
+        url = $(this).data('lien');
+        $.ajax({
+                type: "DELETE",
+                url : url,
+                data: { _token : "{{ csrf_token() }}"},
+                dataType: "text",
+                success: function(data){
+                    location.reload();
+                }
+            });
+    });
+
+    $(document).on('click','.remove-row',function(){
+      $('#modaldelete').modal('show');
+      url = $(this).data('lien');
+      $('#modaldelete #delete').attr('data-lien',url);
+    });
+
     $('#profile').on('submit', function(){ 
         $('#profile .fa-spin').show();
         $(this).ajaxSubmit({

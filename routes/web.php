@@ -83,7 +83,7 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('/compteUser', 'compteUserController@index')->name('compteUser');
         Route::get('/compteUser/add', 'compteUserController@add');
         Route::get('/compteUser/edit/{id}', 'compteUserController@edit');
-        Route::post('/compteUser', 'compteUserController@create')->name('news.store');
+        Route::post('/compteUser', 'compteUserController@create')->name('compteUser.store');
         Route::post('/compteUser/update/{id}', 'compteUserController@update');
         Route::delete('/compteUser/delete/{id}', 'compteUserController@destroy');
     });
