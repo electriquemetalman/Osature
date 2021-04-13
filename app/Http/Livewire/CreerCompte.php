@@ -20,13 +20,10 @@ class CreerCompte extends Component
     public $mdp;
     public $mdpc;
     public $pays;
-<<<<<<< HEAD
-    
-=======
-    // public $apm;
-    // public $payeer;
-    // public $bitcoin;
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
+
+    public $apm;
+    public $payeer;
+    public $bitcoin;
     public $token;
 
     public function create(){
@@ -54,24 +51,17 @@ class CreerCompte extends Component
                             'email'=>$this->email,
                             'password'=>Hash::make($this->mdp),
                             'pays'=>$this->pays,
-<<<<<<< HEAD
                             'apm'=>null,
                             'bitcoins'=>null,
                             'payeer'=>null,
                             'type'=>'cleint',
-=======
-                            // 'apm'=>$this->apm,
-                            // 'bitcoins'=>$this->bitcoin,
-                            // 'payeer'=>$this->payeer,
-                            'type'=>'client',
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
                             'statut'=>0,
                             'remember_token'=>$this->token
                         ]
                         );
         
                         if ($reponse) {
-<<<<<<< HEAD
+
 //Notification admin
                             $reponse->email=env('MAIL_ADMIN');
 
@@ -88,19 +78,14 @@ class CreerCompte extends Component
 
                             $this->dispatchBrowserEvent('alert', 
                             ['type' => 'success',  'message' => 'Veuillez Patienter que nous examinons votre demande de création de compte et un mail vous sera envoyé pour vous donner l\'etat de votre demande.']);
-=======
 
-                            $reponse->notify(new mailCreationCompte);
-
-                            $this->dispatchBrowserEvent('alert', 
-                            ['type' => 'success',  'message' => 'Votre compte a été crée avec succès.Veuillez l\'activer a travers le mail que nous vous avons envoyé.']);
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
                         }else {
                             $this->dispatchBrowserEvent('alert', 
                             ['type' => 'error',  'message' => 'Erreur de création de votre compte.Veuillez reéssayer s\il vous plait.']);
                         
                         }
                 } catch (\Throwable $th) {
+                    
                     $this->dispatchBrowserEvent('alert', 
                     ['type' => 'error',  'message' => "Erreur Lors de l'envoie du mail de confirmation"]);
                         

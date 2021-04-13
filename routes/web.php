@@ -25,11 +25,9 @@ Route::get('Connexion', 'CompteController@Compte')->name('connexion');
 Route::get('Creation-Compte', 'CompteController@AddCompte')->name('addCompte');
 Route::get('verificationCompte/{id}/{remember_token}', 'CompteController@Verification')->name('verification');
 Route::post('send_message', 'contact@send')->name('sendMessage');
-<<<<<<< HEAD
+
 Route::get('recuperer_mot_de_passe', 'CompteController@recoverpw')->name('recoverpw');
 Route::get('mot_de_pass_oublie{id}', 'CompteController@changePw')->name('ChangePw');
-=======
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
 
 Route::middleware([connexion::class])->group(function () {
 
@@ -55,6 +53,7 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
         Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
         Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
+        Route::get('Administration|Account_List', 'ConfigurationController@ListeCompte')->name('admin_AccountList_path');
     
         /**
          * Routes News
@@ -88,11 +87,8 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('/compteUser', 'compteUserController@index')->name('compteUser');
         Route::get('/compteUser/add', 'compteUserController@add');
         Route::get('/compteUser/edit/{id}', 'compteUserController@edit');
-<<<<<<< HEAD
+        
         Route::post('/compteUser', 'compteUserController@create')->name('news.store');
-=======
-        Route::post('/compteUser', 'compteUserController@create')->name('compteUser.store');
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
         Route::post('/compteUser/update/{id}', 'compteUserController@update');
         Route::delete('/compteUser/delete/{id}', 'compteUserController@destroy');
     });

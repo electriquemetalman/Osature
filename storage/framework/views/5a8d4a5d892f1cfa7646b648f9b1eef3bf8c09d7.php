@@ -8,7 +8,10 @@ The trading process includes algorithms, over 300 trades per second on exchanges
 Purchase sale of currency pairs, then in the next step the amount of profit received from transactions is distributed, after which it is transferred to the accounts of the company for further distribution among investors to personal account available in the account customer's staff</p>
         </div><br/><br/>
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
         <div class="row">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
             <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">

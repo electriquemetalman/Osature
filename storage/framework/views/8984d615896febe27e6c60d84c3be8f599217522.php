@@ -37,7 +37,9 @@
                                   <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fa fa-phone"></i></div>
                                   </div>
+                                  
                                   <input class="form-control" type="text" wire:model.lazy="nom" value="<?php echo e($nom); ?>" placeholder="votre nom" autocomplete required>
+
                               </div>
 
                               <span>Prenom</span>
@@ -95,6 +97,7 @@
                                   </div>
                                   <input class="form-control" type="text" wire:model.lazy="pays" value="<?php echo e($pays); ?>" placeholder="Votre pays" required>
                               </div>
+
     
                               <div class="text-right text-teal">
                                 <span >Vous avez un compte? </span> <a href="<?php echo e(route('connexion')); ?>">Cliquez ici</a> 
@@ -107,8 +110,10 @@
                                 </div>
                                 <?php endif; ?>
                                 <div class="form-group text-center">
+                                  
                                     <button type="submit" class="btn btn-primary" wire:target='create' wire:loading.remove>Creer</button>
                                     <input type="button" class="btn btn-primary" value="Patientez..." wire:target='create' wire:loading >
+                                    
                                 </div>
     
                             </div>

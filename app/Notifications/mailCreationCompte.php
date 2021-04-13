@@ -40,7 +40,7 @@ class mailCreationCompte extends Notification
      */
     public function toMail($notifiable)
     {
-<<<<<<< HEAD
+        
         if ($notifiable->apm=='1') {
             return (new MailMessage)
                     ->subject('Verification d\'adresse email')
@@ -72,14 +72,6 @@ class mailCreationCompte extends Notification
         }
         
         
-=======
-        return (new MailMessage)
-        ->subject('Inscription sur osature')
-                    ->line('Votre compte a bien été crée mais il doit être activé, Merci de cliquer sur le lien suivant:')
-                    ->action('Confirmer', url("verificationCompte/".encrypt(urlencode($notifiable->id))."/".urlencode("{$notifiable->remember_token}")  ))
-                    ->line('Si vous n\'êtes pas à l\'origin de ce mail, bien voulaoir l\'ignorer')
-                    ->line('Merci!');
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
     }
 
     /**

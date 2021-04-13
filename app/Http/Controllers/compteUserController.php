@@ -4,23 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\compteUser;
-<<<<<<< HEAD
-=======
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
+
 
 class compteUserController extends Controller
 {
     public function index()
     {
         $title = 'Accueil';
-<<<<<<< HEAD
+        
         $compteUser= compteUser::orderBy('created_at', 'DESC')->get();
         return view('client.compteUser.index', compact('title','compteUser'));
-    }
-=======
-        return view('client.compteUser.index', compact('title'));
+
     }
     
     public function add()
@@ -104,5 +101,4 @@ class compteUserController extends Controller
         return response()->json(['state'=>'success']);
     }
 
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
 }

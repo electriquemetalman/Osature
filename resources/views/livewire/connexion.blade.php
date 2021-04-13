@@ -70,16 +70,15 @@
                 </div>
             </div>
             <!-- /Shiping Details -->
-<<<<<<< HEAD
-            @if ($fail_count==2)
+            
+            @if ($fail_count==3)
             <div>
             <a href="{{route('recoverpw')}}">
                     Cliquez ici pour recuperer votre mot de passe
                 </a>
             </div>
             @endif
-=======
->>>>>>> b3e74eabb44907e378d216aa365fdd5c833c5bb8
+            
             
 
         </div>

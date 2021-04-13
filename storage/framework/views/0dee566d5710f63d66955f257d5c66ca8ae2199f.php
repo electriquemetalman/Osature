@@ -70,6 +70,7 @@
                 </div>
             </div>
             <!-- /Shiping Details -->
+            
             <?php if($fail_count==2): ?>
             <div>
             <a href="<?php echo e(route('recoverpw')); ?>">
@@ -77,6 +78,7 @@
                 </a>
             </div>
             <?php endif; ?>
+            
             
 
         </div>
