@@ -10,7 +10,7 @@
         cliker juste sur le bouton
     </p><br/><br/>
 
-    <button type="submit">reset my passewordr</button>
+    <button type="submit" ref="{{ route('newPass') }}">reset my passewordr</button>
 
 
 </body>
