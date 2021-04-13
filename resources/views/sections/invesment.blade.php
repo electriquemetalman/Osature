@@ -26,9 +26,9 @@
                         <i class="bx bxl-dribbble"></i>
                     </div>
                     <h4><a href="">{{ $investment->libelle }}</a></h4><br/>
-                    <div class="bouton-invest" ><h1 class="invest-p"><sup><img src="image/capdolard2.PNG" alt="" style="height: 48px; width: 35px"></sup>{{ $investment->licence }}</h1></div><br/><br/>
+                    <div class="bouton-invest" ><h1 class="invest-p"><sup><img src="image/capdolard2.png" alt="" style="height: 48px; width: 35px"></sup>{{ $investment->licence }}</h1></div><br/><br/>
                     <p>
-                            <table style="width: 310px">
+                            <table style="width: 310px" cellspacing=12 cellpadding=6>
                                 <!--<tr>
                                     <td>Licence</td>
                                     <td>:</td>
@@ -37,12 +37,12 @@
                                 <tr>
                                     <td>Investment</td>
                                     <td>:</td>
-                                    <td> {{ $investment->investmin }} <img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"> ~~ {{ $investment->investmax }} <img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
+                                    <td> {{ $investment->investmin }} <img src="image/capdolard2.png" alt="" style="height: 33px; width: 25px"> - {{ $investment->investmax }} <img src="image/capdolard2.png" alt="" style="height: 33px; width: 25px"></td>
                                 </tr>
                                 <tr>
                                     <td>Daily profit</td>
                                     <td>:</td>
-                                    <td>{{ $investment->profitjourmin }} % ~~ {{ $investment->profitjourmax }} %</td>
+                                    <td>{{ $investment->profitjourmin }} % - {{ $investment->profitjourmax }} %</td>
                                 </tr>
                                 <tr>
                                     <td>Monthly profit</td>
@@ -89,14 +89,14 @@
                         <i class="bx bxl-dribbble"></i>
                     </div>
                     <h4><a href="">{{ $investment->libelle }}</a></h4><br/>
-                    <div class="bouton-invest" ><h1 class="invest-p"><sup><img src="image/capdolard2.PNG" alt="" style="height: 48px; width: 35px"></sup>{{ $investment->investmin }}</h1></div><br/><br/>
+                    <div class="bouton-invest" ><h1 class="invest-p"><sup><img src="image/capdolard2.png" alt="" style="height: 48px; width: 35px"></sup>{{ $investment->investmin }}</h1></div><br/><br/>
                     <p>
                         @if($investment->userlimit == '')
-                            <table >
+                            <table cellspacing=12 cellpadding=4.5>
                                 <tr>
                                     <td>Investment</td>
                                     <td>:</td>
-                                    <td>{{ $investment->investmin }}<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"> ~~ {{ $investment->investmax }}<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
+                                    <td>{{ $investment->investmin }}<img src="image/capdolard2.png" alt="" style="height: 33px; width: 25px"> - {{ $investment->investmax }}<img src="image/capdolard2.png" alt="" style="height: 33px; width: 25px"></td>
                                 </tr>
                                 <tr>
                                     <td>Contact lenght</td>
@@ -106,7 +106,7 @@
                                 <tr>
                                     <td>Daily profit</td>
                                     <td>:</td>
-                                    <td>{{ $investment->profitjourmin }}% ~~ {{ $investment->profitjourmax }} %</td>
+                                    <td>{{ $investment->profitjourmin }}% - {{ $investment->profitjourmax }} %</td>
                                 </tr>
                                 <tr>
                                     <td>Profit accounting</td>
@@ -124,7 +124,7 @@
                                 <<tr>
                                     <td>Investment</td>
                                     <td>:</td>
-                                    <td>{{ $investment->investmin }}<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"> ~~ {{ $investment->investmax }}<img src="image/capdolard2.PNG" alt="" style="height: 33px; width: 25px"></td>
+                                    <td>{{ $investment->investmin }}<img src="image/capdolard2.png" alt="" style="height: 33px; width: 25px"> - {{ $investment->investmax }}<img src="image/capdolard2.png" alt="" style="height: 33px; width: 25px"></td>
                                 </tr>
                                 <tr>
                                     <td>Contact lenght</td>
@@ -134,7 +134,7 @@
                                 <tr>
                                     <td>Daily profit</td>
                                     <td>:</td>
-                                    <td>{{ $investment->profitjourmin }}% ~~ {{ $investment->profitjourmax }} %</td>
+                                    <td>{{ $investment->profitjourmin }}% - {{ $investment->profitjourmax }} %</td>
                                 </tr>
                                 <tr>
                                     <td>Profit accounting</td>

@@ -44,6 +44,7 @@ class ConfigurationController extends Controller
     //aficher le detail d'une actualite
     public function detail($id)
     {
+        session(['url.intended' => null]);
         $news = News::find($id);
         $news_list = News::orderby('created_at', 'desc')->limit(5)->get();
         return view('single', compact('news', 'news_list'));

@@ -20,9 +20,9 @@ class CreerCompte extends Component
     public $mdp;
     public $mdpc;
     public $pays;
-    public $apm;
-    public $payeer;
-    public $bitcoin;
+    // public $apm;
+    // public $payeer;
+    // public $bitcoin;
     public $token;
 
     public function create(){
@@ -50,10 +50,10 @@ class CreerCompte extends Component
                             'email'=>$this->email,
                             'password'=>Hash::make($this->mdp),
                             'pays'=>$this->pays,
-                            'apm'=>$this->apm,
-                            'bitcoins'=>$this->bitcoin,
-                            'payeer'=>$this->payeer,
-                            'type'=>'cleint',
+                            // 'apm'=>$this->apm,
+                            // 'bitcoins'=>$this->bitcoin,
+                            // 'payeer'=>$this->payeer,
+                            'type'=>'client',
                             'statut'=>0,
                             'remember_token'=>$this->token
                         ]
