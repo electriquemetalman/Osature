@@ -51,7 +51,8 @@
                           </div>
 
                           <div class="text-right text-teal">
-                            <span >Vous n'avez pas de compte? </span> <a href="<?php echo e(route('addCompte')); ?>">Cliquez ici</a> 
+                            <span >Vous n'avez pas de compte? </span> <a href="<?php echo e(route('addCompte')); ?>">Cliquez ici</a><br/><br/>
+                            <a href="<?php echo e(route('passOublier')); ?>">mot de passe oublié</a>
                          </div>
 
                             <br>
@@ -71,7 +72,7 @@
             </div>
             <!-- /Shiping Details -->
             
-            <?php if($fail_count==2): ?>
+            <?php if($fail_count==3): ?>
             <div>
             <a href="<?php echo e(route('recoverpw')); ?>">
                     Cliquez ici pour recuperer votre mot de passe

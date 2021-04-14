@@ -14,12 +14,10 @@ class compteController extends Controller
     public function Compte()
     { 
         return view('compte.connection');
-
     }
     public function AddCompte()
     {
         return view('compte.creerCompte');
-
     }
 
     public function Administrer()
@@ -39,10 +37,12 @@ class compteController extends Controller
         return redirect('/');
     }
 
-    public function Verification($id,$token){
+    public function Verification($id, $token)
+    {
 
-        $reponse=compte::Where( 
+        $reponse = compte::Where(
             [
+
                 'id'=>decrypt($id),
                 'remember_token'=>$token
 
@@ -63,6 +63,7 @@ class compteController extends Controller
 
             }else{
                 return redirect()->route('connexion')->with('warning','Lien expiré.! veuillez renvoyer un autre Lien ici.');
+
             }
     }
     

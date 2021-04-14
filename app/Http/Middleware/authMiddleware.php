@@ -24,7 +24,7 @@ class authMiddleware
             return redirect()->route('connexion');
 
         }
-        
+
         return $next($request);
     }
 }
