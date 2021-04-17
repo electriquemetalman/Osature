@@ -1,4 +1,4 @@
-@include('sections.header')
+@include('sections.header',compact('users'))
 
 @include('sections.createCompteForm')
 

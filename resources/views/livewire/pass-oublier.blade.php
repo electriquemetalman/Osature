@@ -10,14 +10,11 @@
                 <br>
                 <!-- Billing Details -->
                 @if (session()->has('error'))
-                <div class="billing-details ">
-                    <img src="image/error-connect.jpg" alt="" width="70%">
-                </div>
-                @else
-                <div class="billing-details ">
-                    <img src="image/connexion.jpg" alt="" width="100%">
 
-                </div>
+                @else
+                    <div class="billing-details ">
+                        <img src="image/connexion.jpg" alt="" width="100%">
+                    </div>
                 @endif
 
                 <!-- /Billing Details -->
@@ -45,9 +42,14 @@
 
                                 <br>
                                 @if (session()->has('error'))
-                                <div class="alert alert-danger text-center">
-                                    <span class="text-danger">{{ session('error') }}</span>
-                                </div>
+                                    <div class="alert alert-danger text-center">
+                                        <span class="text-danger">{{ session('error') }}</span>
+                                    </div>
+                                @endif
+                                @if (session()->has('success'))
+                                    <div class="alert alert-success text-center">
+                                        <span class="text-success">{{ session('success') }}</span>
+                                    </div>
                                 @endif
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-primary" wire:target='sendMail' wire:loading.remove>Envoyer</button>

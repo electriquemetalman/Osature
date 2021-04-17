@@ -53,7 +53,7 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
         Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
         Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
-    
+
         /**
          * Routes News
          */
@@ -90,6 +90,4 @@ Route::middleware([connexion::class])->group(function () {
         Route::post('/compteUser/update/{id}', 'compteUserController@update');
         Route::delete('/compteUser/delete/{id}', 'compteUserController@destroy');
     });
-
 });
-

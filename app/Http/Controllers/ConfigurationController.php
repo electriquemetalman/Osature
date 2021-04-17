@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\passePartoutRequest;
 use App\models\adresse;
 use App\models\News;
+use Illuminate\Auth;
+use Illuminate\Auth\Middleware\Authenticate;
+use App\models\compte;
 use App\models\about as ModelsAbout;
 use App\models\investissement as ModelsInvest;
 use App\models\faq as ModelsFaq;
@@ -29,8 +32,11 @@ class ConfigurationController extends Controller
         $N = ModelsFaq::count();
         $InvestmentList = ModelsInvest::get();
         $contact = adresse::get();
+        $users = compte::get();
+        //$users = Auth::compte();
 
-        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList', 'contact'));
+
+        return view('welcome', compact('AboutList', 'FaqList', 'InvestmentList', 'contact', 'users'));
     }
 
     //aficher les news

@@ -67,6 +67,8 @@ class Connexion extends Component
 
     public function render()
     {
-        return view('livewire.connexion');
+        $users = compte::get();
+
+        return view('livewire.connexion', compact('users'));
     }
 }

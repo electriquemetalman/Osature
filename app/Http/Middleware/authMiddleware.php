@@ -14,15 +14,13 @@ class authMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   
+    {
         if (auth()->guest()) {
-            if(!session()->has('url.intended'))
-            {
+            if (!session()->has('url.intended')) {
                 session(['url.intended' => url()->previous()]);
             }
             session()->flash("error", "Erreur! Votre session a expirée, Veuillez vous reconnecter.");
             return redirect()->route('connexion');
-
         }
 
         return $next($request);
