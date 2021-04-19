@@ -2,10 +2,11 @@
       <div class="container"  data-aos="fade-up">
         <div class="section-title">
           <h2 class="menus">About Us</h2>
-          <p>Osature is an investment company that has been developed by industry experts and serves as a universal portfolio for investor.
-The trading process includes algorithms, over 300 trades per second on exchanges using private software, and talented Osature traders.<br><br>
+            <p>
+                Osature Investment is a commercial organization created in 2019 that combines professional trading activity in the forex markets, the development of artificial intelligence, as well as technologies related to cryptocurrency. <br><br>
 
-Purchase sale of currency pairs, then in the next step the amount of profit received from transactions is distributed, after which it is transferred to the accounts of the company for further distribution among investors to personal account available in the account customer's staff</p>
+                We are committed to expanding activities in areas that will matter in the decades to come. Mobilizing resources from corporate investment activities and generating liquid profits for partners and organizations.
+            </p>
         </div><br/><br/>
 
         <div class="row">

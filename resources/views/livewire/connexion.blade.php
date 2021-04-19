@@ -36,22 +36,17 @@
 
                             <span>email</span>
                             <div class="input-group mb-2 mr-sm-2">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="fa fa-phone"></i></div>
-                              </div>
                               <input class="form-control" type="email" wire:model.lazy="email" value="{{ $email }}" placeholder="ex: Osature@Admin.com" required>
-                          </div>
+                            </div>
 
                           <span>Mot de Passe</span>
                           <div class="input-group mb-2 mr-sm-2">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text"><i class="fa fa-lock"></i></div>
-                            </div>
                             <input  class="form-control" type="password" value="{{ $mdp }}" wire:model.lazy="mdp" placeholder="*******" minlength="6" required>
                           </div>
 
                           <div class="text-right text-teal">
-                            <span >Vous n'avez pas de compte? </span> <a href="{{ route('addCompte') }}">Cliquez ici</a> 
+                            <span >Vous n'avez pas de compte? </span> <a href="{{ route('addCompte') }}">Cliquez ici</a><br/><br/>
+                            <a href="{{ route('passOublier') }}">mot de passe oublié</a>
                          </div>
 
                             <br>
@@ -70,7 +65,7 @@
                 </div>
             </div>
             <!-- /Shiping Details -->
-            
+
 
         </div>
         <!-- /Order Details -->

@@ -12,14 +12,18 @@ class compteController extends Controller
 
 
     public function Compte()
-    { 
-        return view('compte.connection');
+    {
 
+        $users = compte::get();
+
+        return view('compte.connection', compact('users'));
     }
     public function AddCompte()
     {
-        return view('compte.creerCompte');
 
+        $users = compte::get();
+
+        return view('compte.creerCompte', compact('users'));
     }
 
     public function Administrer()
@@ -30,35 +34,40 @@ class compteController extends Controller
 
     public function Deconnexion(Request $request)
     {
+
         Auth::logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
+        //$users = compte::get();
+
         return redirect('/');
     }
 
-    public function Verification($id,$token){
+    public function Verification($id, $token)
+    {
 
-        $reponse=compte::Where( 
+        $reponse = compte::Where(
             [
-                'id'=>decrypt($id),
-                'remember_token'=>$token
-            ],)->first();
+                'id' => decrypt($id),
+                'remember_token' => $token
+            ]
+        )->first();
 
-            if($reponse){
-                if ($reponse->statut==false) {
-                    $reponse->update([
-                        'statut'=>true
-                    ]);
-                }else{
-                    return redirect()->route('connexion')->with('success','Compte déjà Confirmé. Veuillez vous connecter.');
-                }
-                
-                return redirect()->route('connexion')->with('success','Compte activé avec succès. Veuillez vous connecter.');
-            }else{
-                return redirect()->route('connexion')->with('warning','Lien expiré.! veuillez renvoyer un autre Lien ici.');
+        if ($reponse) {
+            if ($reponse->statut == false) {
+                $reponse->update([
+                    'statut' => true
+                ]);
+            } else {
+                return redirect()->route('connexion')->with('success', 'Compte déjà Confirmé. Veuillez vous connecter.');
             }
+
+            return redirect()->route('connexion')->with('success', 'Compte activé avec succès. Veuillez vous connecter.');
+        } else {
+            return redirect()->route('connexion')->with('warning', 'Lien expiré.! veuillez renvoyer un autre Lien ici.');
+        }
     }
 }

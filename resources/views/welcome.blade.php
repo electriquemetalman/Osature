@@ -1,6 +1,5 @@
 
-
-@include('sections/header')
+@include('sections/header', compact('users'))
 
 
 

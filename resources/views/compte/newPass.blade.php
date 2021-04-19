@@ -1,6 +1,6 @@
 @include('sections.header',compact('users'))
 
-@include('sections.createCompteForm')
+@include('sections.newPassForm')
 
 @include('sections.footer')
 
