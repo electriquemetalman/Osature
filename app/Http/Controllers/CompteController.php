@@ -77,11 +77,12 @@ class compteController extends Controller
         return view('compte.recover_pass_word');
     }
 
-    public function changePw($id){
+    public function changePw($id,$token){
         $ident=decrypt($id);
         $reponse=compte::Where( 
             [
-                'id'=>decrypt($id),
+                'id'=>$ident,
+                'remember_token'=>$token
             ])->first();
 
             if($reponse){

@@ -55,7 +55,7 @@ class mailCreationCompte extends Notification
                 return (new MailMessage)
                     ->subject('Demande de recupération de compte')
                     ->line('Merci de cliquer sur le lien ci dessous pour changer votre mot de passe')
-                    ->action('Recuperer ici', url( "mot_de_pass_oublie".encrypt(urlencode($notifiable->id)))  )
+                    ->action('Recuperer ici', url( "mot_de_pass_oublie/".encrypt(urlencode($notifiable->id))."/".urlencode("{$notifiable->remember_token}"))  )
                     ->line('Si vous n\'êtes pas à l\'origine de ce mail, bien vouloir l\'ignorer')
                     ->line('Merci!');
                 

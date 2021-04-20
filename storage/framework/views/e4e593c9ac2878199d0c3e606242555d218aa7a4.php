@@ -26,6 +26,8 @@
           <li class="nav-header active">Configuration</li>
 
 
+
+          
                          <li class="nav-item has-treeview">
                             <a href="<?php echo e(route('admin_about_path')); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
@@ -126,6 +128,8 @@
 
 
                         <li class="nav-header active">Extra</li>
+                        
+
 
                               <li class="nav-item">
                                   <a href="<?php echo e(route('admin_Deconnexion_path')); ?>" class="nav-link">

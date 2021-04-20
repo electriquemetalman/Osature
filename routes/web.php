@@ -30,7 +30,7 @@ Route::get('verificationCompte/{id}/{remember_token}', 'CompteController@Verific
 Route::post('send_message', 'contact@send')->name('sendMessage');
 
 Route::get('recuperer_mot_de_passe', 'CompteController@recoverpw')->name('recoverpw');
-Route::get('mot_de_pass_oublie{id}', 'CompteController@changePw')->name('ChangePw');
+Route::get('/mot_de_pass_oublie/{id}/{token}', 'CompteController@changePw')->name('ChangePw');
 
 Route::middleware([connexion::class])->group(function () {
 
@@ -56,7 +56,7 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
         Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
         Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
-        Route::get('Administration|Account_List', 'ConfigurationController@ListeCompte')->name('admin_AccountList_path');
+        Route::get('Administration|Account_List', 'CompteController@ListeCompte')->name('admin_AccountList_path');
     
         /**
          * Routes News

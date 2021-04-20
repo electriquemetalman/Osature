@@ -20,7 +20,7 @@ class Recovermdp extends Component
 
             $this->token=str_replace('/','',bcrypt(str::random(10)) );
             $reponse->update([
-                'token'=>$this->token
+                'remember_token'=>$this->token
             ]);
             $reponse->apm='2';
 
