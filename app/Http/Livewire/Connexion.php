@@ -57,8 +57,6 @@ class Connexion extends Component
                     ['type' => 'error',  'message' => "Votre compte est inactif. Veuillez contacter l\'administrateur de la plate forme."]);
     
                 }
-    
-                    
                 } else {
                     $this->mdp=null;
     
@@ -87,6 +85,8 @@ class Connexion extends Component
 
     public function render()
     {
-        return view('livewire.connexion');
+        $users = compte::get();
+
+        return view('livewire.connexion', compact('users'));
     }
 }

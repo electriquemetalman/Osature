@@ -12,12 +12,20 @@ class compteController extends Controller
 
 
     public function Compte()
-    { 
-        return view('compte.connection');
+
+    {
+
+        $users = compte::get();
+
+        return view('compte.connection', compact('users'));
+
     }
     public function AddCompte()
     {
-        return view('compte.creerCompte');
+
+        $users = compte::get();
+
+        return view('compte.creerCompte', compact('users'));
     }
 
     public function Administrer()
@@ -28,11 +36,14 @@ class compteController extends Controller
 
     public function Deconnexion(Request $request)
     {
+
         Auth::logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        //$users = compte::get();
 
         return redirect('/');
     }

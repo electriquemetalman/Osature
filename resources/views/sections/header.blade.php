@@ -27,7 +27,7 @@
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
   <link href="{{asset('css/style1.css')}}" rel="stylesheet">
   {{-- <link href="css/bootstrap.min.css" rel="stylesheet"> --}}
-  
+
   <link href="{{asset('vendor/toastr/toastr.css')}}" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Techie - v2.1.0
@@ -39,7 +39,7 @@
   <div class="modal fade" id="modalComment">
     <div class="modal-dialog">
       <div class="modal-content">
-        
+
       </div>
     </div>
   </div>
@@ -67,10 +67,21 @@
 
           </ul>
         </nav><!-- .nav-menu -->
-
-        <a href="{{ route('connexion') }}" class="get-started-btn scrollto">Connexion</a>
+        @if (auth()->check())
+                <div style="padding-left: 50px;">
+                    <img src="{{'image/profil/'.auth()->user()->avatar }}" class="image--cover">
+                </div>
+                @if(auth()->user()->type == "administrateur")
+                    <a href="{{ route('index_admin_path') }}"><h4 style="color:#fff; text-align:right">{{auth()->user()->nomuser }}</h4></a>
+                @else
+                    <a href="{{ route('index_client_path') }}"><h4 style="color:#fff; text-align:right">{{auth()->user()->nomuser }}</h4></a>
+                @endif
+        @else
+            <a href="{{ route('connexion') }}" class="get-started-btn scrollto">Connexion</a>
+        @endif
       </div>
     </div>
 
   </div>
 </header><!-- End Header -->
+

@@ -16,6 +16,7 @@ class authMiddleware
     public function handle($request, Closure $next)
     {   
         if (auth()->guest()) {
+          
             if(!session()->has('url.intended'))
             {
                 session(['url.intended' => url()->previous()]);

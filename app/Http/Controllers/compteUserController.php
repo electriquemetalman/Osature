@@ -4,31 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\compteUser;
-
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-
-
 class compteUserController extends Controller
 {
     public function index()
     {
         $title = 'Accueil';
+
         
         $compteUser= compteUser::orderBy('created_at', 'DESC')->get();
         return view('client.compteUser.index', compact('title','compteUser'));
 
     }
     
+
     public function add()
     {
         $compteUser = auth()->user()->compteUsers;
-        $table=[];
+        $table = [];
         foreach ($compteUser as $v) {
             $table[] = $v->type;
         }
         return view('client.compteUser.add', compact('table'));
-    
+
     }
 
     public function edit($id)
@@ -65,6 +64,7 @@ class compteUserController extends Controller
             'adresse' => $request->adresse,
             'compte_id' => auth()->user()->id,
         ]);
+      
         return response()->json(['state'=>'success']);
     }
     public function update(Request $request, $id)
@@ -98,6 +98,7 @@ class compteUserController extends Controller
     public function destroy($id)
     {
         $compteUser = compteUser::destroy($id);
+      
         return response()->json(['state'=>'success']);
     }
 

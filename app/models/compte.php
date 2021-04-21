@@ -12,6 +12,7 @@ class compte extends Model implements Authenticatable
 {
     use basicAuth;
     use Notifiable;
+  
     
 
 
@@ -21,5 +22,6 @@ class compte extends Model implements Authenticatable
     
     public function compteUsers(){
         return $this->hasMany(compteUser::class)->orderBy('created_at','desc');
+
     }
 }
