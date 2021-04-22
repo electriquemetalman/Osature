@@ -1,0 +1,1 @@
+@livewire('changemdp',['ident'=>$ident])

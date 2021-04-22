@@ -28,8 +28,10 @@ class mailContact extends Mailable
      */
     public function build()
     {
-        return $this->subject('Mail from osature.com')
-            ->from($this->details['email'])
-            ->view('emails.contactMail');
+        
+        return $this->subject($this->details['subject'])
+                    ->from($this->details['email'])
+                    ->view('emails.contactMail');
+                    
     }
 }
