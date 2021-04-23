@@ -5,7 +5,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span></button>
     </div>
-    <div class="modal-body" style="height: 550px;overflow: auto;">
+    <div class="modal-body" style="max-height: 550px;overflow: auto;">
         <div class="card-body">
                 @foreach($new->comments as $comment)
                 @if($comment->comments_id==NULL)

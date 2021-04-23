@@ -2,50 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\compteUser;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
-class compteUserController extends Controller
+
+class RoleController extends Controller
 {
+    
     public function index()
     {
-        $title = 'Accueil';
-
-        $compteUser= compteUser::orderBy('created_at', 'DESC')->get();
-        return view('client.compteUser.index', compact('title','compteUser'));
-
+        $title = 'Role';
+        return view('administration.index', compact('title'));
     }
     
-
     public function add()
     {
-        $compteUser = auth()->user()->compteUsers;
-        $table = [];
-        foreach ($compteUser as $v) {
-            $table[] = $v->type;
-        }
-        return view('client.compteUser.add', compact('table'));
-
+        return view('livewire.role.add');
+    
     }
 
     public function edit($id)
     {
-        $compteUser = compteUser::findorfail($id);
-        $compteUsers = auth()->user()->compteUsers;
-        $table=[];
-        foreach ($compteUsers as $v) {
-            $table[] = $v->type;
-        }
-        return view('client.compteUser.edit',compact('compteUser','table'));
-    
+        $role = Role::find($id);
+        return view('livewire.role.edit', compact('role'));
     }
-    
+
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'type' => 'required',
-            'adresse' => 'required',
+            'nom' => 'required|min:3',
+            'slug' => 'required|unique:roles|min:3',
         ]);
 
         if ($validator->fails()) {
@@ -58,19 +45,19 @@ class compteUserController extends Controller
                         'reason' => $reason
                     ]);
         }
-        $compteUser= compteUser::create([
-            'type' => $request->type,
-            'adresse' => $request->adresse,
-            'compte_id' => auth()->user()->id,
+
+        $Role= Role::create([
+            'nom' => $request->nom,
+            'slug' => $request->slug,
         ]);
-      
         return response()->json(['state'=>'success']);
     }
+
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'type' => 'required',
-            'adresse' => 'required',
+            'nom' => 'required|min:3',
+            'slug' => 'required|unique:roles|min:3',
         ]);
 
         if ($validator->fails()) {
@@ -84,11 +71,11 @@ class compteUserController extends Controller
                     ]);
         }
 
-        $reponse = compteUser::whereId($id)
+        $reponse = Role::whereId($id)
         ->update(
             [
-                'type' => $request->type,
-                'adresse' => $request->adresse,
+                'nom' => $request->nom,
+                'slug' => $request->slug,
             ]
         );
         return response()->json(['state'=>'success']);
@@ -96,9 +83,7 @@ class compteUserController extends Controller
 
     public function destroy($id)
     {
-        $compteUser = compteUser::destroy($id);
-      
+        $Role = Role::destroy($id);
         return response()->json(['state'=>'success']);
     }
-
 }

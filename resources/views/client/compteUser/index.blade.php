@@ -32,28 +32,10 @@
                 <tr>
                     <th>Type de compte</th>
                     <th>Adresses</th>
-
-        <table style="width: 100%;" class="table table-hover table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Type de compte </th>
-                    <th>Adresse</th>
-
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>$320,800</td>
-                    <td>
-                        <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                    </td>
-                </tr>
-
                 @foreach(auth()->user()->compteUsers as $compteUser)
                 <tr>
                     <td>{{$compteUser['type']=="apm" ? "Adresse USD Perfect money":($compteUser['type']=="payeer" ? "Adresse USD Payeer":"Adresse Bitcoin")}}</td>

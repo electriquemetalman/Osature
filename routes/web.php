@@ -71,6 +71,16 @@ Route::middleware([connexion::class])->group(function () {
         Route::post('/news', 'NewsController@create')->name('news.store');
         Route::post('/news/update/{id}', 'NewsController@update');
         Route::delete('/news/delete/{id}', 'NewsController@destroy');
+
+        /**
+         * Routes Roles
+         */
+        Route::get('/Administration|roles', 'RoleController@index')->name('admin_Role');
+        Route::get('/roles/add', 'RoleController@add');
+        Route::get('/roles/edit/{id}', 'RoleController@edit');
+        Route::post('/roles', 'RoleController@create')->name('roles.store');
+        Route::post('/roles/update/{id}', 'RoleController@update');
+        Route::delete('/roles/delete/{id}', 'RoleController@destroy');
     });
 
 

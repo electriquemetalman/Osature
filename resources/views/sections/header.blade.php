@@ -69,7 +69,7 @@
         </nav><!-- .nav-menu -->
         @if (auth()->check())
                 <div style="padding-left: 50px;">
-                    <img src="{{'image/profil/'.auth()->user()->avatar }}" class="image--cover">
+                    <img src="{{auth()->user()->image=='' ? 'profile.jpg':'image/profil/'.auth()->user()->image}}" class="image--cover">
                 </div>
                 @if(auth()->user()->type == "administrateur")
                     <a href="{{ route('index_admin_path') }}"><h4 style="color:#fff; text-align:right">{{auth()->user()->nomuser }}</h4></a>

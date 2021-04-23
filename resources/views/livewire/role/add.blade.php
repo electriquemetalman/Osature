@@ -2,28 +2,22 @@
 <div class="modal-content">
 
     <div class="modal-header">
-        <h4 class="modal-title">Create a new</h4>
+        <h4 class="modal-title">Create a role</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span></button>
     </div>
     
-    <form role="form" action="{{route('news.store')}}" method="post" enctype="multipart/form-data">
+    <form role="form" action="{{route('roles.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-body" style="max-height: 550px;overflow: auto;">
             <div class="card-body">
-                <div class="col-md-12 col-12">
-                    <center>
-                        <img id="imgpreviewad" class="btnaddimage" style="max-height: 200px;" src="default.png"><br>
-                        <input type="file" id="inputimgad" name="image" style="display: none;" accept=".png,.jpeg,.jpg">
-                    </center>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" class="form-control" name="nom" placeholder="Name" required>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Title</label>
-                    <input type="text" class="form-control" name="titre" placeholder="Title" required>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Description</label>
-                    <textarea class="form-control textarea" name="description" placeholder="Description"></textarea>
+                    <label for="exampleInputEmail1">Slug</label>
+                    <input type="text" class="form-control" name="slug" placeholder="Slug" required>
                 </div>
             </div>
             <p id="infoslogin" style="text-align: center;color: red"></p>

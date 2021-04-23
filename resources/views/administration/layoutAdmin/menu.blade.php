@@ -11,7 +11,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ 'image/profil/'.auth()->user()->avatar }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{auth()->user()->image=='' ? 'profile.jpg':'image/profil/'.auth()->user()->image}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{ route('index_admin_path') }}" class="d-block">{{ auth()->user()->nomuser }}</a>
@@ -122,11 +122,24 @@
                                     <p>Gerer les comptes</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin_Role') }}" class="nav-link">
+                                    <i class="fa fa-caret-right nav-icon"></i>
+                                    <p>Gerer les roles</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
 
-
+                    <li class="nav-item">
+                        <a href="Administration|news" class="nav-link">
+                            <i class="nav-icon far fa-plus-square"></i>
+                            <p>
+                                NEWS
+                            </p>
+                        </a>
+                    </li>
                         <li class="nav-header active">Extra</li>
                         
 

@@ -78,7 +78,6 @@ class NewsController extends Controller
                     ]);
         }
 
-
         $profileImage = $request->file('image'); 
         $profileImageSaveAsName = time(). Auth::id() ."-news.".$profileImage->getClientOriginalExtension();
         $upload_path=public_path('image/news/'.$profileImageSaveAsName);

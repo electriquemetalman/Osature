@@ -9,7 +9,7 @@
     
 <form role="form" action="news/update/{{$new->id}}" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="modal-body" style="height: 550px;overflow: auto;">
+        <div class="modal-body" style="max-height: 550px;overflow: auto;">
             <div class="card-body">
                 <div class="col-md-12 col-12">
                     <center>

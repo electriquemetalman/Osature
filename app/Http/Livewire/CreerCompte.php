@@ -60,7 +60,7 @@ class CreerCompte extends Component
                             'payeer'=>null,
                             'type'=>'cleint',
                             'statut'=>0,
-                          'avatar' => 'avatar.png',
+                            'image' => '',
                             'remember_token'=>$this->token
                         ]
                     );
