@@ -23,13 +23,13 @@ class ClientController extends Controller
         return view('client.profile', compact('title'));
     }
     public function editProfile(Request $request)
-    { 
+    {
         $validator = Validator::make($request->all(), [
             'nom' => 'required',
             'prenom' => 'required',
             'nomuser' => 'required|',
             'pays' => 'required|',
-            'email' => 'required|email|unique:comptes,email,'.auth()->user()->id,
+            'email' => 'required|email|unique:comptes,email,' . auth()->user()->id,
             // 'apm' => 'required|',
             // 'bitcoins' => 'required|',
             // 'payeer' => 'required|',
@@ -37,43 +37,43 @@ class ClientController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $reason='';
-            foreach ($validator->errors()->all() as $error){
-                $reason.='<li>'.$error.'</li>';
+            $reason = '';
+            foreach ($validator->errors()->all() as $error) {
+                $reason .= '<li>' . $error . '</li>';
             }
             return response()->json([
-                        'state' => 'error',
-                        'reason' => $reason
-                    ]);
+                'state' => 'error',
+                'reason' => $reason
+            ]);
         }
 
         $client = compte::find(auth()->user()->id);
-        if($request->hasFile('image')){
-            $profileImage = $request->file('image'); 
-            $profileImageSaveAsName = time(). Auth::id() ."-profil.".$profileImage->getClientOriginalExtension();
-            $upload_path=public_path('image/profil/'.$profileImageSaveAsName);
-            move_uploaded_file($profileImage,$upload_path);
-        }else{
+        if ($request->hasFile('image')) {
+            $profileImage = $request->file('image');
+            $profileImageSaveAsName = time() . Auth::id() . "-profil." . $profileImage->getClientOriginalExtension();
+            $upload_path = public_path('image/profil/' . $profileImageSaveAsName);
+            move_uploaded_file($profileImage, $upload_path);
+        } else {
             $profileImageSaveAsName = $client->image;
         }
         $reponse = compte::whereId(auth()->user()->id)
-        ->update(
-            [
-                'nom' => $request->nom,
-                'prenom' => $request->prenom,
-                'nomuser' => $request->nomuser,
-                'pays' => $request->pays,
-                'email' => $request->email,
-                // 'apm' => $request->apm,
-                // 'bitcoins' => $request->bitcoins,
-                // 'payeer' => $request->payeer,
-                'image' => $profileImageSaveAsName,
-            ]
-        );
-        return response()->json(['state'=>'success']);
+            ->update(
+                [
+                    'nom' => $request->nom,
+                    'prenom' => $request->prenom,
+                    'nomuser' => $request->nomuser,
+                    'pays' => $request->pays,
+                    'email' => $request->email,
+                    // 'apm' => $request->apm,
+                    // 'bitcoins' => $request->bitcoins,
+                    // 'payeer' => $request->payeer,
+                    'image' => $profileImageSaveAsName,
+                ]
+            );
+        return response()->json(['state' => 'success']);
     }
     public function editPassword(Request $request)
-    { 
+    {
         $validator = Validator::make($request->all(), [
             'old_password' => 'required',
             'password' => 'required|min:6',
@@ -81,28 +81,27 @@ class ClientController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $reason='';
-            foreach ($validator->errors()->all() as $error){
-                $reason.='<li>'.$error.'</li>';
+            $reason = '';
+            foreach ($validator->errors()->all() as $error) {
+                $reason .= '<li>' . $error . '</li>';
             }
             return response()->json([
-                        'state' => 'error',
-                        'reason' => $reason
-                    ]);
+                'state' => 'error',
+                'reason' => $reason
+            ]);
         }
         $client = compte::find(auth()->user()->id);
-        if(Hash::check($request->old_password, $client->password)){
+        if (Hash::check($request->old_password, $client->password)) {
             $reponse = compte::whereId(auth()->user()->id)
-            ->update(
-                ['password' => Hash::make($request->password),]
-            );
-            return response()->json(['state'=>'success']);
-        }else{
+                ->update(
+                    ['password' => Hash::make($request->password),]
+                );
+            return response()->json(['state' => 'success']);
+        } else {
             return response()->json([
                 'state' => 'error',
                 'reason' => 'Le mot de passe actuel est érroné'
             ]);
         }
-        
     }
 }
