@@ -21,13 +21,16 @@ Route::get('/', 'ConfigurationController@Welcome')->name('welcome');
 Route::get('news', 'ConfigurationController@News')->name('news');
 Route::get('detail/{id}', 'ConfigurationController@detail')->name('news');
 Route::get('Passoublier', 'PassOubliercontroller@passOublier')->name('passOublier');
-Route::post('Sendmail', 'PassOubliercontroller@sendMail')->name('sendMail');
+Route::post('Sendmail/{id}/{token}', 'PassOubliercontroller@sendMail')->name('sendMail');
 Route::get('NewPass', 'NewPassController@newPass')->name('newPass');
 
 Route::get('Connexion', 'CompteController@Compte')->name('connexion');
 Route::get('Creation-Compte', 'CompteController@AddCompte')->name('addCompte');
 Route::get('verificationCompte/{id}/{remember_token}', 'CompteController@Verification')->name('verification');
 Route::post('send_message', 'contact@send')->name('sendMessage');
+
+Route::get('recuperer_mot_de_passe', 'CompteController@recoverpw')->name('recoverpw');
+Route::get('/mot_de_pass_oublie/{id}/{token}', 'CompteController@changePw')->name('ChangePw');
 
 Route::middleware([connexion::class])->group(function () {
 
@@ -53,6 +56,9 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
         Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
         Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
+
+        Route::get('Administration|Account_List', 'CompteController@ListeCompte')->name('admin_AccountList_path');
+
 
         /**
          * Routes News
@@ -86,7 +92,9 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('/compteUser', 'compteUserController@index')->name('compteUser');
         Route::get('/compteUser/add', 'compteUserController@add');
         Route::get('/compteUser/edit/{id}', 'compteUserController@edit');
-        Route::post('/compteUser', 'compteUserController@create')->name('compteUser.store');
+
+
+        Route::post('/compteUser', 'compteUserController@create')->name('news.store');
         Route::post('/compteUser/update/{id}', 'compteUserController@update');
         Route::delete('/compteUser/delete/{id}', 'compteUserController@destroy');
     });

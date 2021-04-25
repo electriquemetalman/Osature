@@ -16,8 +16,21 @@ class PassOubliercontroller extends Controller
         return view('compte.passOublier');
     }
 
-    public function sendMail()
+    public function sendMail($id, $token)
     {
-        return view('compte.passOublier');
+
+        $ident = decrypt($id);
+        $reponse = compte::Where(
+            [
+                'id' => $ident,
+                'remember_token' => $token
+            ]
+        )->first();
+
+        if ($reponse) {
+            return view('compte.changer_mdp', compact('ident'));
+        } else {
+            return redirect()->route('connexion')->with('warning', 'Lien expiré.!');
+        }
     }
 }

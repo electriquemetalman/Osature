@@ -12,6 +12,7 @@ class compteController extends Controller
 
 
     public function Compte()
+
     {
 
         $users = compte::get();
@@ -51,23 +52,53 @@ class compteController extends Controller
 
         $reponse = compte::Where(
             [
+
                 'id' => decrypt($id),
+                'remember_token' => $token
+
+            ]
+        )->first();
+
+        if ($reponse) {
+            if ($reponse->verif_email == false) {
+                $reponse->update([
+                    'verif_email' => true
+                ]);
+                return redirect()->route('connexion')->with('success', 'Email Confirmé. Veuillez Patienter que nous examinons votre demande de création de compte et un mail vous sera envoyé pour vous donner l\'etat de votre demande.');
+            } else {
+                return redirect()->route('connexion')->with('warning', 'Votre adresse email a déjà été confirmée.');
+            }
+        } else {
+            return redirect()->route('connexion')->with('warning', 'Lien expiré.! veuillez renvoyer un autre Lien ici.');
+        }
+    }
+
+
+    public function ListeCompte()
+    {
+        $title = 'Compte';
+        return view('administration.index', compact('title'));
+    }
+
+    public function recoverpw()
+    {
+        return view('compte.recover_pass_word');
+    }
+
+    public function changePw($id, $token)
+    {
+        $ident = decrypt($id);
+        $reponse = compte::Where(
+            [
+                'id' => $ident,
                 'remember_token' => $token
             ]
         )->first();
 
         if ($reponse) {
-            if ($reponse->statut == false) {
-                $reponse->update([
-                    'statut' => true
-                ]);
-            } else {
-                return redirect()->route('connexion')->with('success', 'Compte déjà Confirmé. Veuillez vous connecter.');
-            }
-
-            return redirect()->route('connexion')->with('success', 'Compte activé avec succès. Veuillez vous connecter.');
+            return view('compte.changer_mdp', compact('ident'));
         } else {
-            return redirect()->route('connexion')->with('warning', 'Lien expiré.! veuillez renvoyer un autre Lien ici.');
+            return redirect()->route('connexion')->with('warning', 'Lien expiré.!');
         }
     }
 }

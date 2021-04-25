@@ -14,6 +14,7 @@
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/pe-icon-7-stroke.min.css')}}">
 
+
     <div class="modal fade show" id="modalAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -45,6 +46,8 @@
             </div>
         </div>
     </div>
+
+
 </head>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
@@ -70,11 +73,14 @@
     
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
 <script src="{{asset('js/jquery.form.js')}}"></script>
 
 </body>
 <script type="text/javascript">
+
     $(document).on('click','.btnedit',function(){
         url = $(this).data('lien');
         modal = $(this).data('modal');
@@ -108,6 +114,7 @@
       url = $(this).data('lien');
       $('#modaldelete #delete').attr('data-lien',url);
     });
+    
 
     $('#profile').on('submit', function(){ 
         $('#profile .fa-spin').show();

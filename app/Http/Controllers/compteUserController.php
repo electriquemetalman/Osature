@@ -6,14 +6,18 @@ use Illuminate\Http\Request;
 use App\models\compteUser;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-
 class compteUserController extends Controller
 {
     public function index()
     {
         $title = 'Accueil';
-        return view('client.compteUser.index', compact('title'));
+
+        
+        $compteUser= compteUser::orderBy('created_at', 'DESC')->get();
+        return view('client.compteUser.index', compact('title','compteUser'));
+
     }
+    
 
     public function add()
     {
@@ -23,19 +27,21 @@ class compteUserController extends Controller
             $table[] = $v->type;
         }
         return view('client.compteUser.add', compact('table'));
+
     }
 
     public function edit($id)
     {
         $compteUser = compteUser::findorfail($id);
         $compteUsers = auth()->user()->compteUsers;
-        $table = [];
+        $table=[];
         foreach ($compteUsers as $v) {
             $table[] = $v->type;
         }
-        return view('client.compteUser.edit', compact('compteUser', 'table'));
+        return view('client.compteUser.edit',compact('compteUser','table'));
+    
     }
-
+    
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -44,21 +50,22 @@ class compteUserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $reason = '';
-            foreach ($validator->errors()->all() as $error) {
-                $reason .= '<li>' . $error . '</li>';
+            $reason='';
+            foreach ($validator->errors()->all() as $error){
+                $reason.='<li>'.$error.'</li>';
             }
             return response()->json([
-                'state' => 'error',
-                'reason' => $reason
-            ]);
+                        'state' => 'error',
+                        'reason' => $reason
+                    ]);
         }
-        $compteUser = compteUser::create([
+        $compteUser= compteUser::create([
             'type' => $request->type,
             'adresse' => $request->adresse,
             'compte_id' => auth()->user()->id,
         ]);
-        return response()->json(['state' => 'success']);
+      
+        return response()->json(['state'=>'success']);
     }
     public function update(Request $request, $id)
     {
@@ -68,29 +75,31 @@ class compteUserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $reason = '';
-            foreach ($validator->errors()->all() as $error) {
-                $reason .= '<li>' . $error . '</li>';
+            $reason='';
+            foreach ($validator->errors()->all() as $error){
+                $reason.='<li>'.$error.'</li>';
             }
             return response()->json([
-                'state' => 'error',
-                'reason' => $reason
-            ]);
+                        'state' => 'error',
+                        'reason' => $reason
+                    ]);
         }
 
         $reponse = compteUser::whereId($id)
-            ->update(
-                [
-                    'type' => $request->type,
-                    'adresse' => $request->adresse,
-                ]
-            );
-        return response()->json(['state' => 'success']);
+        ->update(
+            [
+                'type' => $request->type,
+                'adresse' => $request->adresse,
+            ]
+        );
+        return response()->json(['state'=>'success']);
     }
 
     public function destroy($id)
     {
         $compteUser = compteUser::destroy($id);
-        return response()->json(['state' => 'success']);
+      
+        return response()->json(['state'=>'success']);
     }
+
 }

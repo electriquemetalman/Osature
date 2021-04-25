@@ -34,9 +34,6 @@
 
                                 <span>email</span>
                                 <div class="input-group mb-2 mr-sm-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-phone"></i></div>
-                                    </div>
                                     <input class="form-control" type="email" wire:model.lazy="email" value="entrer votre adresse mail" placeholder="ex: Osature@Admin.com" required>
                                 </div>
 

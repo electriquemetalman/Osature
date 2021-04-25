@@ -34,7 +34,7 @@
 
                                 <span>Nom</span>
                                 <div class="input-group mb-2 mr-sm-2">
-                                  <input class="form-control" type="text" wire:model.lazy="nom" value="{{ $nom }}" placeholder="" required>
+                                  <input class="form-control" type="text" wire:model.lazy="nom" value="{{ $nom }}" placeholder="votre nom" autocomplete required>
                               </div>
 
                               <span>Prenom</span>
@@ -75,29 +75,6 @@
                                   <input class="form-control" type="text" wire:model.lazy="pays" value="{{ $pays }}" placeholder="" required>
                                 </div>
 
-                              <!--<span>Adresse Perfect Money</span>
-                                <div class="input-group mb-2 mr-sm-2">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
-                                  </div>
-                                  <input class="form-control" type="text" wire:model.lazy="apm" value="" placeholder="Votre Adresse Perfect Money" required>
-                              </div>
-
-                              <span>Adresse bitcoin</span>
-                                <div class="input-group mb-2 mr-sm-2">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
-                                  </div>
-                                  <input class="form-control" type="text" wire:model.lazy="bitcoin" value="" placeholder="Votre Adresse bitcoin" required>
-                              </div>
-
-                              <span>Adresse Payeer</span>
-                                <div class="input-group mb-2 mr-sm-2">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
-                                  </div>
-                                  <input class="form-control" type="text" wire:model.lazy="payeer" value="" placeholder="Votre Adresse Payeer" required>
-                              </div>-->
 
                               <div class="text-right text-teal">
                                 <span >Vous avez un compte? </span> <a href="{{ route('connexion') }}">Cliquez ici</a>
@@ -110,8 +87,10 @@
                                 </div>
                                 @endif
                                 <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary" wire:target='connexion' wire:loading.remove>Creer</button>
-                                    <input type="button" class="btn btn-primary" value="Patientez..." wire:target='connexion' wire:loading >
+
+                                    <button type="submit" class="btn btn-primary" wire:target='create' wire:loading.remove>Creer</button>
+                                    <input type="button" class="btn btn-primary" value="Patientez..." wire:target='create' wire:loading >
+
                                 </div>
 
                             </div>
