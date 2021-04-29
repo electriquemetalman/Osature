@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'connexion'=>  \App\Http\Middleware\authMiddleware::class,
         'client'=>  \App\Http\Middleware\clientMiddleware::class,
         'admin'=>  \App\Http\Middleware\adminMiddleware::class,
+        'permission'=>  \App\Http\Middleware\permissionMiddleware::class,
             
     ];
 }

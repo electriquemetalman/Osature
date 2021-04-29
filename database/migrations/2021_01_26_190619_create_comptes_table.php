@@ -26,6 +26,8 @@ class CreateComptesTable extends Migration
             $table->boolean('statut')->default(false);
             $table->boolean('verif_email')->default(false);
             $table->boolean('mdp_forget')->default(true);
+            $table->bigInteger('roles_id')->unsigned()->index()->nullable();
+            $table->foreign('roles_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

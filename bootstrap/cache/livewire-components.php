@@ -7,6 +7,7 @@
   'faq' => 'App\\Http\\Livewire\\Faq',
   'new-investment' => 'App\\Http\\Livewire\\NewInvestment',
   'news' => 'App\\Http\\Livewire\\News',
+  'permission' => 'App\\Http\\Livewire\\Permission',
   'recovermdp' => 'App\\Http\\Livewire\\Recovermdp',
   'role' => 'App\\Http\\Livewire\\Role',
   'new-pass' => 'App\\Http\\Livewire\\newPass',

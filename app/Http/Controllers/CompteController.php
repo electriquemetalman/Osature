@@ -4,22 +4,115 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\passePartoutRequest;
 use App\models\compte;
+use App\models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class compteController extends Controller
 {
 
 
-    public function Compte()
-
-    {
-
+    public function Compte(){
         $users = compte::get();
-
         return view('compte.connection', compact('users'));
 
     }
+
+    public function add()
+    {
+        $role = Role::get();
+        return view('livewire.compte.add', compact('role'));
+    
+    }
+
+    public function edit($id)
+    {
+        $compte = compte::find($id);
+        $role = Role::get();
+        return view('livewire.compte.edit', compact('compte','role'));
+    }
+
+    public function create(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'nom' => 'required|min:3',
+            'nomuser' => 'required|min:3',
+            'email' => 'required|unique:comptes|',
+            'password' => 'required|min:6',
+            'statut' => 'required|',
+            'type' => 'required|',
+        ]);
+
+        if ($validator->fails()) {
+            $reason='';
+            foreach ($validator->errors()->all() as $error){
+                $reason.='<li>'.$error.'</li>';
+            }
+            return response()->json([
+                        'state' => 'error',
+                        'reason' => $reason
+                    ]);
+        }
+        if($request->hasFile('image')){
+            $profileImage = $request->file('image'); 
+            $profileImageSaveAsName = time(). Auth::id() ."-profil.".$profileImage->getClientOriginalExtension();
+            $upload_path=public_path('image/profil/'.$profileImageSaveAsName);
+            move_uploaded_file($profileImage,$upload_path);
+        }else{
+            $profileImageSaveAsName = '';
+        }
+        $compte= compte::create([
+            'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
+            'nomuser'=>$request->nomuser,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->mdp),
+            'pays'=>$request->pays,
+            'type'=>$request->type,
+            'statut'=>$request->statut,
+            'roles_id'=>$request->type!='client' ? $request->roles_id:NULL,
+            'image' => $profileImageSaveAsName,
+        ]);
+        return response()->json(['state'=>'success']);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'statut' => 'required|',
+            'type' => 'required|',
+        ]);
+
+        if ($validator->fails()) {
+            $reason='';
+            foreach ($validator->errors()->all() as $error){
+                $reason.='<li>'.$error.'</li>';
+            }
+            return response()->json([
+                        'state' => 'error',
+                        'reason' => $reason
+                    ]);
+        }
+
+        $reponse = compte::whereId($id)
+        ->update(
+            [
+                'type' => $request->type,
+                'statut' => $request->statut,
+                'roles_id'=>$request->type!='client' ? $request->roles_id:NULL,
+            ]
+        );
+        return response()->json(['state'=>'success']);
+    }
+
+    public function destroy($id)
+    {
+        $compte = compte::destroy($id);
+        return response()->json(['state'=>'success']);
+    }
+
     public function AddCompte()
     {
 
@@ -91,21 +184,17 @@ class compteController extends Controller
     public function changePw($id,$token){
         $ident=decrypt($id);
         $reponse=compte::Where( 
-            [
-                'id'=>$ident,
-                'remember_token'=>$token
-            ])->first();
+        [
+            'id'=>$ident,
+            'remember_token'=>$token
+        ])->first();
 
-            if($reponse){
-                return view('compte.changer_mdp',compact('ident'));
-            }else{
-                return redirect()->route('connexion')->with('warning','Lien expiré.!');
-            }
+        if($reponse){
+            return view('compte.changer_mdp',compact('ident'));
+        }else{
+            return redirect()->route('connexion')->with('warning','Lien expiré.!');
+        }
 
-
-
-
-       
     }
 
 }

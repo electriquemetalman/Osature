@@ -11,6 +11,9 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<script src="{{asset('plugins/toastr/toastr.min.js')}}"></script>
+
 <!-- DataTables -->
 <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
@@ -44,6 +47,16 @@
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 
 <script>
+
+  // $(document).ready(function(){
+  //   const Toast = Swal.mixin({
+  //     toast: true,
+  //     position: 'top-end',
+  //     showConfirmButton: false,
+  //     timer: 3000
+  //   });
+  //   toastr.success('Tes alertes comme tu les aimes');
+  // })
   $(function () {
     $("#example1").DataTable({
       "responsive": true,
@@ -95,6 +108,23 @@
             }
         });
     })
+    $(document).on('click','.btncheck',function(){
+        var role = $(this).data('role');
+        var permission = $(this).data('permission');
+        var state = 0;
+        if($(this).is(':checked')){
+          state = 1;
+        }
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'), 'X-Requested-With': 'XMLHttpRequest'},
+            url: 'permissions/checked',
+            data : {'role':role, 'permission':permission,'state':state, _token : "{{ csrf_token() }}"},
+            type: 'POST',
+            dataType: 'json',
+            success: function(result){
+            }
+        });
+    })
 
   $(document).on('click','#delete',function(){
       url = $(this).data('lien');
@@ -130,6 +160,14 @@
       reader.readAsDataURL(input.files[0]);
     }
   }
+  $(document).on('change','#type',function(){ 
+    if($(this).val()=='client'){
+      $("#role").hide();
+      $("#role_select").val('');
+    }else{
+      $("#role").show();
+    }
+  })
 </script>
 @livewireScripts
 </body>

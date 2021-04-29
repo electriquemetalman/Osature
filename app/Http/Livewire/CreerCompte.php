@@ -55,10 +55,7 @@ class CreerCompte extends Component
                             'email'=>$this->email,
                             'password'=>Hash::make($this->mdp),
                             'pays'=>$this->pays,
-                            'apm'=>null,
-                            'bitcoins'=>null,
-                            'payeer'=>null,
-                            'type'=>'cleint',
+                            'type'=>'client',
                             'statut'=>0,
                             'image' => '',
                             'remember_token'=>$this->token

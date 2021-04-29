@@ -46,35 +46,46 @@ class Compte extends Component
         $this->vueNonVue(false, true, false);
     }
 
-    public function activer($id)
+    public function toggle($id, $statut)
     {
         $reponse = compteList::find($id);
+        if($statut==0){
+            $nom=$reponse->nom;
+            $email=$reponse->email;
+            
+            $reponse =$reponse->update([
+                'statut'=>true
+            ]);
 
-        $nom=$reponse->nom;
-        $email=$reponse->email;
-        
-        $reponse =$reponse->update([
-            'statut'=>true
-        ]);
+            if ($reponse) {
+                $details=[
+                    'message'=>"Votre accès à la plate forme Osature est desormais valide. veuillez acceder via l'adresse suivante :  www.osature.com",
+                    'subject'=>"Confirmation d'accès à la plate forme Osature",
+                    'name'=>$nom,
+                    'email'=>env('MAIL_FROM_ADDRESS')
+            ];
 
-        if ($reponse) {
-            $details=[
-                'message'=>"Votre accès à la plate forme Osature est desormais valide. veuillez acceder via l'adresse suivante :  www.osature.com",
-                'subject'=>"Confirmation d'accès à la plate forme Osature",
-                'name'=>$nom,
-                'email'=>env('MAIL_FROM_ADDRESS')
-        ];
+            try {
+                $reponse= Mail::to($email)->send(new mailContact($details));
+                session()->flash("message", "compte activé avec succès. Le concerné à été notifié par mail.");
+                    
+            } catch (\Throwable $th) {
+                session()->flash("error", "Erreur! Le mail n\a pas pu être envoyé.");
 
-        try {
-            $reponse= Mail::to($email)->send(new mailContact($details));
-            session()->flash("message", "compte activé avec succès. Le concerné à été notifié par mail.");
-                
-        } catch (\Throwable $th) {
-            session()->flash("error", "Erreur! Le mail n\a pas pu être envoyé.");
+            }
+            } else {
+                session()->flash("error", "Erreur! le compte n'a pas pu être activé.");
+            }
+        }else{
+            $reponse = compteList::find($id)->update([
+                'statut'=>false
+            ]);
 
-        }
-        } else {
-            session()->flash("error", "Erreur! le compte n'a pas pu être activé.");
+            if ($reponse) {
+                session()->flash("message", "compte desactivé avec succès.");
+            } else {
+                session()->flash("error", "Erreur! le compte n'a pas pu être desactivé.");
+            }
         }
     }
 
@@ -111,6 +122,6 @@ class Compte extends Component
 
     public function render()
     {
-        return view('livewire.compte'); 
+        return view('livewire.compte.index'); 
     }
 }

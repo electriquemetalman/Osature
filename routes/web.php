@@ -50,37 +50,73 @@ Route::middleware([connexion::class])->group(function () {
      * Routes espace administrateur
      */
     Route::middleware([admin::class])->group(function () {
+        
         Route::get('Administration', 'CompteController@Administrer')->name('index_admin_path');
-        Route::get('Administration|Contact', 'ConfigurationController@Contact')->name('admin_contact_path');
-        Route::post('Administration-saveContact', 'ConfigurationController@saveContact')->name('save_contact_admin_path');
-        Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
-        Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
-        Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
 
-        Route::get('Administration|Account_List', 'CompteController@ListeCompte')->name('admin_AccountList_path');
-    
+        Route::middleware(['permission:voir_aboutUs'])->group(function () {
+            Route::get('Administration|About', 'ConfigurationController@About')->name('admin_about_path');
+        });
 
-        /**
-         * Routes News
-         */
-        Route::get('/Administration|news', 'NewsController@index');
-        Route::get('/news/add', 'NewsController@add');
-        Route::get('/news/edit/{id}', 'NewsController@edit');
-        Route::get('/news/{id}/comments', 'NewsController@listcomment');
-        Route::get('/news/detail/{id}', 'NewsController@detail');
-        Route::post('/news', 'NewsController@create')->name('news.store');
-        Route::post('/news/update/{id}', 'NewsController@update');
-        Route::delete('/news/delete/{id}', 'NewsController@destroy');
+        Route::middleware(['permission:voir_faq'])->group(function () {
+            Route::get('Administration|FAQ', 'ConfigurationController@FAQ')->name('admin_faq_path');
+        });
 
-        /**
-         * Routes Roles
-         */
-        Route::get('/Administration|roles', 'RoleController@index')->name('admin_Role');
-        Route::get('/roles/add', 'RoleController@add');
-        Route::get('/roles/edit/{id}', 'RoleController@edit');
-        Route::post('/roles', 'RoleController@create')->name('roles.store');
-        Route::post('/roles/update/{id}', 'RoleController@update');
-        Route::delete('/roles/delete/{id}', 'RoleController@destroy');
+        Route::middleware(['permission:voir_contact'])->group(function () {
+            Route::get('Administration|Contact', 'ConfigurationController@Contact')->name('admin_contact_path');
+            Route::post('Administration-saveContact', 'ConfigurationController@saveContact')->name('save_contact_admin_path');
+        });
+
+        Route::middleware(['permission:voir_investment'])->group(function () {
+            Route::get('Administration|Investment', 'ConfigurationController@Investment')->name('admin_Investment_path');
+        });
+
+        Route::middleware(['permission:voir_compte'])->group(function () {
+            /**
+             * Gestion des comptes
+             */
+            Route::get('Administration|Account_List', 'CompteController@ListeCompte')->name('admin_AccountList_path');
+            Route::get('/comptes/add', 'CompteController@add');
+            Route::get('/comptes/edit/{id}', 'CompteController@edit');
+            Route::post('/comptes', 'CompteController@create')->name('comptes.store');
+            Route::post('/comptes/update/{id}', 'CompteController@update');
+            Route::delete('/comptes/delete/{id}', 'CompteController@destroy');
+            
+            /**
+             * Routes Roles
+             */
+            Route::get('/Administration|roles', 'RoleController@index')->name('admin_Role');
+            Route::get('/roles/add', 'RoleController@add');
+            Route::get('/roles/edit/{id}', 'RoleController@edit');
+            Route::post('/roles', 'RoleController@create')->name('roles.store');
+            Route::post('/roles/update/{id}', 'RoleController@update');
+            Route::delete('/roles/delete/{id}', 'RoleController@destroy');
+
+            /**
+             * Routes Permissions
+             */
+            Route::get('/Administration|permissions', 'PermissionController@index')->name('admin_Permission');
+            Route::post('/permissions/checked', 'PermissionController@checked');
+            Route::get('/permissions/edit/{id}', 'PermissionController@edit');
+            Route::post('/permissions', 'PermissionController@create')->name('permissions.store');
+            Route::post('/permissions/update/{id}', 'PermissionController@update');
+            Route::delete('/permissions/delete/{id}', 'PermissionController@destroy');
+        });
+
+        Route::middleware(['permission:voir_news'])->group(function () {
+            /**
+             * Routes News
+             */
+            Route::get('/Administration|news', 'NewsController@index');
+            Route::get('/news/add', 'NewsController@add');
+            Route::get('/news/edit/{id}', 'NewsController@edit');
+            Route::get('/news/{id}/comments', 'NewsController@listcomment');
+            Route::get('/news/detail/{id}', 'NewsController@detail');
+            Route::post('/news', 'NewsController@create')->name('news.store');
+            Route::post('/news/update/{id}', 'NewsController@update');
+            Route::delete('/news/delete/{id}', 'NewsController@destroy');
+        });
+
+
     });
 
 
@@ -102,9 +138,7 @@ Route::middleware([connexion::class])->group(function () {
         Route::get('/compteUser', 'compteUserController@index')->name('compteUser');
         Route::get('/compteUser/add', 'compteUserController@add');
         Route::get('/compteUser/edit/{id}', 'compteUserController@edit');
-
-        
-        Route::post('/compteUser', 'compteUserController@create')->name('news.store');
+        Route::post('/compteUser', 'compteUserController@create')->name('compteUser.store');
         Route::post('/compteUser/update/{id}', 'compteUserController@update');
         Route::delete('/compteUser/delete/{id}', 'compteUserController@destroy');
     });
